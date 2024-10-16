@@ -180,9 +180,18 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            Code auditing
+                            代码审计（Code auditing）
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/">PHP代码审计三板斧-命令执行漏洞</a></li>  <li class="file"><a href="/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/">PHP代码审计三板斧-Sql注入漏洞</a></li>  <li class="file"><a href="/wiki/PHP-Code_Auditing-Xss_Vulnerability/">PHP代码审计三板斧-Xss漏洞</a></li>  <li class="file"><a href="/wiki/Windows-Virus_analysis-Assembly/">Windows病毒分析三板斧-</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/">PHP代码审计三板斧-命令执行漏洞</a></li>  <li class="file"><a href="/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/">PHP代码审计三板斧-Sql注入漏洞</a></li>  <li class="file"><a href="/wiki/PHP-Code_Auditing-Xss_Vulnerability/">PHP代码审计三板斧-Xss漏洞</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            恶意样本分析（Virus analysi）
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Windows_Virus-analysis_Assembly/">Windows病毒分析三板斧-汇编</a></li>  </ul> 
                     </li> 
                      </ul> 
     </div>
@@ -256,7 +265,7 @@
 </aside>
             
             <section id="main">
-        <article id="post-PHP-Code_Auditing-Command_Execution_Vulnerability" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Windows_Virus-analysis_Assembly" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -266,20 +275,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Code-auditing/">Code auditing</a>
+        <a class="article-category-link" href="/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%EF%BC%88Virus-analysi%EF%BC%89/">恶意样本分析（Virus analysi）</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Code-auditing/" rel="tag">Code auditing</a>, <a class="tag-link-link" href="/tags/PHP/" rel="tag">PHP</a>
+        <a class="tag-link-link" href="/tags/Virus-analysis/" rel="tag">Virus analysis</a>, <a class="tag-link-link" href="/tags/Windows/" rel="tag">Windows</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/">
-            <time datetime="2024-10-12T14:26:28.000Z" itemprop="datePublished">2024-10-12</time>
+        <a href="/wiki/Windows_Virus-analysis_Assembly/">
+            <time datetime="2024-10-16T01:39:31.000Z" itemprop="datePublished">2024-10-16</time>
         </a>
     </div>
 
@@ -290,13 +299,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/PHP-Code_Auditing-Command_Execution_Vulnerability.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Windows_Virus-analysis_Assembly.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/PHP-Code_Auditing-Command_Execution_Vulnerability.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Windows_Virus-analysis_Assembly.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/PHP-Code_Auditing-Command_Execution_Vulnerability.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Windows_Virus-analysis_Assembly.md'> History </a>
                             </div>
                         
                     </div>
@@ -304,111 +313,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/">PHP代码审计三板斧-命令执行漏洞</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="常见的命令执行函数"><a href="#常见的命令执行函数" class="headerlink" title="常见的命令执行函数"></a>常见的命令执行函数</h2><table>
-<thead>
-<tr>
-<th>常见函数</th>
-<th>参考</th>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-PHP-Code_Auditing-Sql_injection_Vulnerability" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Code-auditing/">Code auditing</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Code-auditing/" rel="tag">Code auditing</a>, <a class="tag-link-link" href="/tags/PHP/" rel="tag">PHP</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/">
-            <time datetime="2024-10-12T14:26:28.000Z" itemprop="datePublished">2024-10-12</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/PHP-Code_Auditing-Sql_injection_Vulnerability.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/PHP-Code_Auditing-Sql_injection_Vulnerability.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/PHP-Code_Auditing-Sql_injection_Vulnerability.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/">PHP代码审计三板斧-Sql注入漏洞</a>
+            <a class="article-title" href="/wiki/Windows_Virus-analysis_Assembly/">Windows病毒分析三板斧-汇编</a>
         </h1>
     
 
@@ -450,7 +355,7 @@
         
             </div>   
             <div class="article-more-link">
-                <a href="/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/#more">查看更多</a>
+                <a href="/wiki/Windows_Virus-analysis_Assembly/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
@@ -474,7 +379,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Code-auditing/">Code auditing</a>
+        <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%EF%BC%88Code-auditing%EF%BC%89/">代码审计（Code auditing）</a>
     </div>
 
                         
@@ -487,7 +392,7 @@
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/wiki/PHP-Code_Auditing-Xss_Vulnerability/">
-            <time datetime="2024-10-12T14:26:28.000Z" itemprop="datePublished">2024-10-12</time>
+            <time datetime="2024-10-16T01:38:11.000Z" itemprop="datePublished">2024-10-16</time>
         </a>
     </div>
 
@@ -568,7 +473,7 @@
 
 
     
-        <article id="post-Windows-Virus_analysis-Assembly" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-PHP-Code_Auditing-Sql_injection_Vulnerability" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -578,7 +483,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Code-auditing/">Code auditing</a>
+        <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%EF%BC%88Code-auditing%EF%BC%89/">代码审计（Code auditing）</a>
     </div>
 
                         
@@ -590,8 +495,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Windows-Virus_analysis-Assembly/">
-            <time datetime="2024-10-12T14:26:28.000Z" itemprop="datePublished">2024-10-12</time>
+        <a href="/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/">
+            <time datetime="2024-10-16T01:36:37.000Z" itemprop="datePublished">2024-10-16</time>
         </a>
     </div>
 
@@ -602,13 +507,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Windows-Virus_analysis-Assembly.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/PHP-Code_Auditing-Sql_injection_Vulnerability.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Windows-Virus_analysis-Assembly.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/PHP-Code_Auditing-Sql_injection_Vulnerability.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Windows-Virus_analysis-Assembly.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/PHP-Code_Auditing-Sql_injection_Vulnerability.md'> History </a>
                             </div>
                         
                     </div>
@@ -616,7 +521,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/wiki/Windows-Virus_analysis-Assembly/">Windows病毒分析三板斧-</a>
+            <a class="article-title" href="/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/">PHP代码审计三板斧-Sql注入漏洞</a>
         </h1>
     
 
@@ -658,7 +563,111 @@
         
             </div>   
             <div class="article-more-link">
-                <a href="/wiki/Windows-Virus_analysis-Assembly/#more">查看更多</a>
+                <a href="/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-PHP-Code_Auditing-Command_Execution_Vulnerability" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%EF%BC%88Code-auditing%EF%BC%89/">代码审计（Code auditing）</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Code-auditing/" rel="tag">Code auditing</a>, <a class="tag-link-link" href="/tags/PHP/" rel="tag">PHP</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/">
+            <time datetime="2024-10-12T14:26:28.000Z" itemprop="datePublished">2024-10-12</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/PHP-Code_Auditing-Command_Execution_Vulnerability.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/PHP-Code_Auditing-Command_Execution_Vulnerability.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/PHP-Code_Auditing-Command_Execution_Vulnerability.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/">PHP代码审计三板斧-命令执行漏洞</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="常见的命令执行函数"><a href="#常见的命令执行函数" class="headerlink" title="常见的命令执行函数"></a>常见的命令执行函数</h2><table>
+<thead>
+<tr>
+<th>常见函数</th>
+<th>参考</th>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
