@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/</loc>
+    
+    <lastmod>2024-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/wiki/PHP-Code_Auditing-Xss_Vulnerability/</loc>
     
     <lastmod>2024-10-16</lastmod>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>http://example.com/wiki/Windows_Virus-analysis_Assembly/</loc>
-    
-    <lastmod>2024-10-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/</loc>
     
     <lastmod>2024-10-16</lastmod>
     
