@@ -9,12 +9,12 @@
         <meta name="keywords" content="PHP,Code auditing" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="PHP的配置文件 一般主要的配置文件主要有php.ini和httpd.conf，.htaccess文件，（该目录必须设置了AllowOverrideAll 或 Options）进行设置。 PHP总共有4个配置指令作用域：（PHP中的每个指令都有自己的作用域，指令只能在其作用域中修改，不是任何地方都能修改配置指令的） PHP_INI_PERDIR：指令可以在php.ini、httpd.conf或.h">
+    <meta name="description" content="PHP的配置文件一般主要的配置文件主要有php.ini和httpd.conf，.htaccess文件，（该目录必须设置了AllowOverrideAll 或 Options）进行设置。 PHP总共有4个配置指令作用域：（PHP中的每个指令都有自己的作用域，指令只能在其作用域中修改，不是任何地方都能修改配置指令的）PHP_INI_PERDIR：指令可以在php.ini、httpd.conf或.hta">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP代码审计-PHP核心配置篇">
 <meta property="og:url" content="http://example.com/wiki/PHP-Code_Auditing-PHP_Core_Configuration/index.html">
 <meta property="og:site_name" content="n0tepadの技术笔记">
-<meta property="og:description" content="PHP的配置文件 一般主要的配置文件主要有php.ini和httpd.conf，.htaccess文件，（该目录必须设置了AllowOverrideAll 或 Options）进行设置。 PHP总共有4个配置指令作用域：（PHP中的每个指令都有自己的作用域，指令只能在其作用域中修改，不是任何地方都能修改配置指令的） PHP_INI_PERDIR：指令可以在php.ini、httpd.conf或.h">
+<meta property="og:description" content="PHP的配置文件一般主要的配置文件主要有php.ini和httpd.conf，.htaccess文件，（该目录必须设置了AllowOverrideAll 或 Options）进行设置。 PHP总共有4个配置指令作用域：（PHP中的每个指令都有自己的作用域，指令只能在其作用域中修改，不是任何地方都能修改配置指令的）PHP_INI_PERDIR：指令可以在php.ini、httpd.conf或.hta">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_1.e2405bdab4.png">
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_2.c81df0dc1a.png">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_4.d1cbb99600.png">
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_5.75e2269c1c.png">
 <meta property="article:published_time" content="2026-06-16T06:41:50.000Z">
-<meta property="article:modified_time" content="2026-06-16T09:56:37.022Z">
+<meta property="article:modified_time" content="2026-06-16T10:05:22.880Z">
 <meta property="article:author" content="n0tepad">
 <meta property="article:tag" content="PHP">
 <meta property="article:tag" content="Code auditing">
@@ -200,7 +200,7 @@
                             &nbsp;
                             恶意样本分析（Virus analysis）
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Windows_Virus-analysis-Packer/">Windows病毒分析三板斧-壳专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-Chapter_XL/">Windows病毒分析三板斧-病毒分析练习专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-SilverFox/">Windows病毒分析三板斧-银狐专项</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Windows_Virus-analysis-Chapter_XL/">Windows病毒分析三板斧-病毒分析练习专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-Packer/">Windows病毒分析三板斧-壳专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-SilverFox/">Windows病毒分析三板斧-银狐专项</a></li>  </ul> 
                     </li> 
                      </ul> 
     </div>
@@ -334,69 +334,39 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">笔记目录</strong>
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">PHP的配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-php-ini"><span class="toc-number">2.</span> <span class="toc-text">1.php.ini</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%881%EF%BC%89php-ini%E7%9A%84%E5%86%99%E5%85%A5%E5%92%8C%E8%AF%BB%E5%8F%96"><span class="toc-number">3.</span> <span class="toc-text">（1）php.ini的写入和读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7%E8%AE%B2%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">（2）重要属性讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-httpd-conf"><span class="toc-number">5.</span> <span class="toc-text">2.httpd.conf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP%E7%B1%BB%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A3%85%E8%BD%BD-autoload-%E6%9C%BA%E5%88%B6%E3%80%82%EF%BC%88%E8%BD%AC%E8%BD%BD%E4%B8%80%E7%AF%87%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">PHP类的自动装载(autoload)机制。（转载一篇）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8file-put-contents-%E6%96%B9%E6%B3%95%E5%B0%86-this-params%EF%BC%88%E5%8F%AF%E6%8E%A7%EF%BC%89%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E4%BB%A5%E5%90%8E%E5%86%99%E5%85%A5settings-inc%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="toc-number">7.</span> <span class="toc-text">1.使用file_put_contents()方法将$this-&gt;params（可控）反序列化以后写入settings.inc文件中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8ini-set-%E5%B0%86-this-settings%EF%BC%88%E5%8F%AF%E6%8E%A7%EF%BC%89%E5%88%86%E8%A7%A3%E6%88%90-key%E5%92%8C-value%E8%AE%BE%E7%BD%AEphp-ini%E7%9A%84%E5%80%BC%EF%BC%8C%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E7%9A%84%E6%97%B6%E5%80%99%E7%94%9F%E6%95%88%E3%80%82"><span class="toc-number">8.</span> <span class="toc-text">2.使用ini_set()将$this-&gt;settings（可控）分解成$key和$value设置php.ini的值，在函数执行的时候生效。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%80%9F%E5%8A%A9ini-set-%E5%B0%86unserialize-callback-func%E7%9A%84%E5%80%BC%E6%B3%A8%E5%86%8C%E4%B8%BAspl-autoload-call%E6%88%96%E8%80%85spl-autoload"><span class="toc-number">8.1.</span> <span class="toc-text">（2）借助ini_set()将unserialize_callback_func的值注册为spl_autoload_call或者spl_autoload</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%A0%E5%AE%9E%E7%8E%B0%E4%BA%86-autoload%EF%BC%88%EF%BC%89%E6%96%B9%E6%B3%95"><span class="toc-number">9.</span> <span class="toc-text">1.你实现了__autoload（）方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AE%BE%E7%BD%AEphp-ini"><span class="toc-number">10.</span> <span class="toc-text">2.设置php.ini</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E7%AC%AC%E4%BA%8C%E6%AD%A5"><span class="toc-number">10.1.</span> <span class="toc-text">（2）第二步</span></a></li></ol></li></ol>
                 </div>
             
         
         
-            <p><strong>PHP的配置文件</strong></p>
-<p>一般主要的配置文件主要有php.ini和httpd.conf，.htaccess文件，（该目录必须设置了AllowOverrideAll 或 Options）进行设置。</p>
-<p>PHP总共有4个配置指令作用域：（PHP中的每个指令都有自己的作用域，指令只能在其作用域中修改，不是任何地方都能修改配置指令的）</p>
-<p>PHP_INI_PERDIR：指令可以在php.ini、httpd.conf或.htaccess文件中修改</p>
-<p>PHP_INI_SYSTEM：指令可以在php.ini 和 httpd.conf 文件中修改</p>
-<p>PHP_INI_USER：指令可以在用户脚本中修改</p>
-<p>PHP_INI_ALL：指令可以在任何地方修改</p>
-<p><em>PHP_INI_USER</em></p>
-<p>可在用户脚本（例如 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/function.ini-set.html">ini_set()</a> ）或 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/configuration.changes.html#configuration.changes.windows">Windows 注册表</a>（自 PHP 5.3 起）以及 <em>.user.ini</em> 中设定</p>
-<p><em>PHP_INI_PERDIR</em></p>
-<p>可在 <em>php.ini</em>，*.htaccess* 或 <em>httpd.conf</em> 中设定</p>
-<p><em>PHP_INI_SYSTEM</em></p>
-<p>可在 <em>php.ini</em> 或 <em>httpd.conf</em> 中设定</p>
-<p><em>PHP_INI_ALL</em></p>
-<p>可在任何地方设定</p>
-<p><strong>1.php.ini</strong></p>
-<p><strong>（1）php.ini的写入和读取</strong></p>
-<p>（1.1）写入【 ini_set()】</p>
-<p>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，对于虚拟空间来说，很方便，下面为大家介绍下此方法的使用</p>
-<p>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，脚本结束后，设置失效。无需打开php.ini文件，就能修改配置，对于虚拟空间来说，很方便。</p>
-<p>函数格式：string ini_set(string $varname, string $newvalue)</p>
-<p>（1.2）读取</p>
-<p>通过 phpinfo()和 get_cfg_var()函数可以得到配置选项的各个值。</p>
-<p><strong>（2）重要属性讲解</strong></p>
-<p>magic_quotes_gpc</p>
+            <h2 id="PHP的配置文件"><a href="#PHP的配置文件" class="headerlink" title="PHP的配置文件"></a>PHP的配置文件</h2><p>一般主要的配置文件主要有php.ini和httpd.conf，.htaccess文件，（该目录必须设置了AllowOverrideAll 或 Options）进行设置。</p>
+<p>PHP总共有4个配置指令作用域：（PHP中的每个指令都有自己的作用域，指令只能在其作用域中修改，不是任何地方都能修改配置指令的）<br>PHP_INI_PERDIR：指令可以在php.ini、httpd.conf或.htaccess文件中修改<br>PHP_INI_SYSTEM：指令可以在php.ini 和 httpd.conf 文件中修改<br>PHP_INI_USER：指令可以在用户脚本中修改<br>PHP_INI_ALL：指令可以在任何地方修改<br><em>PHP_INI_USER</em><br>可在用户脚本（例如 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/function.ini-set.html">ini_set()</a> ）或 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/configuration.changes.html#configuration.changes.windows">Windows 注册表</a>（自 PHP 5.3 起）以及 <em>.user.ini</em> 中设定<br><em>PHP_INI_PERDIR</em><br>可在 <em>php.ini</em>，*.htaccess* 或 <em>httpd.conf</em> 中设定<br><em>PHP_INI_SYSTEM</em><br>可在 <em>php.ini</em> 或 <em>httpd.conf</em> 中设定<br><em>PHP_INI_ALL</em><br>可在任何地方设定</p>
+<h2 id="1-php-ini"><a href="#1-php-ini" class="headerlink" title="1.php.ini"></a>1.php.ini</h2><h2 id="（1）php-ini的写入和读取"><a href="#（1）php-ini的写入和读取" class="headerlink" title="（1）php.ini的写入和读取"></a>（1）php.ini的写入和读取</h2><p>（1.1）写入【 ini_set()】<br>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，对于虚拟空间来说，很方便，下面为大家介绍下此方法的使用<br>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，脚本结束后，设置失效。无需打开php.ini文件，就能修改配置，对于虚拟空间来说，很方便。</p>
+<p>函数格式：string ini_set(string $varname, string $newvalue)<br>（1.2）读取<br>通过 phpinfo()和 get_cfg_var()函数可以得到配置选项的各个值。</p>
+<h2 id="（2）重要属性讲解"><a href="#（2）重要属性讲解" class="headerlink" title="（2）重要属性讲解"></a>（2）重要属性讲解</h2><p>magic_quotes_gpc</p>
 <p>PHP解析器就会自动为post、get、cookie过来的数据增加转义字符“\”，以确保这些数据不会引起程序，特别是数据库语句因为特殊字符（认为是php的字符）引起的污染而出现致命的错误 。插入后在数据库里显示的是转义前的原始数据，所以取出来不用转义。<br>如果输入的数据有单引号（’）、双引号（”）、反斜线（\）与 NUL（NULL 字符）等字符都会被加上反斜线。<br>PHP中get_magic_quotes_gpc()函数是内置的函数，这个函数的作用就是得到php.ini设置中magic_quotes_gpc选项的值，PHP6中删除了magic_quotes_gpc这个选项<br>当magic_quotes_gpc&#x3D;On的时候，函数get_magic_quotes_gpc()就会返回1<br>当magic_quotes_gpc&#x3D;Off的时候，函数get_magic_quotes_gpc()就会返回0</p>
-<p>safr_mode&#x3D;OFF</p>
-<p>避免各种奇奇怪怪的错误</p>
-<p>register_globals</p>
+<p>safr_mode&#x3D;OFF<br>避免各种奇奇怪怪的错误<br>register_globals</p>
 <p>注册全局变量</p>
 <p>open_basedir</p>
-<p>防范目录遍历</p>
-<p>allow_url_fopen</p>
-<p>文件打开的限制</p>
+<p>防范目录遍历<br>allow_url_fopen<br>文件打开的限制</p>
 <p>file_uploads</p>
-<p>任意文件上传需要，允许上传文件</p>
-<p>display_errors</p>
-<p>避免攻击者获取更多的信息</p>
+<p>任意文件上传需要，允许上传文件<br>display_errors<br>避免攻击者获取更多的信息</p>
 <p>expose_php</p>
 <p>隐藏版本信息</p>
-<p><strong>2.httpd.conf</strong></p>
-<p> safe_mode</p>
+<h2 id="2-httpd-conf"><a href="#2-httpd-conf" class="headerlink" title="2.httpd.conf"></a>2.httpd.conf</h2><p>safe_mode</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Directory</span> /<span class="attr">var</span>/<span class="attr">www</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>Options FollowSymLinks<br>php_admin_value safe_mode1</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">Directory</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>PHP类的自动装载(autoload)机制。（转载一篇）</strong></p>
-<p>__autoload()</p>
+<h2 id="PHP类的自动装载-autoload-机制。（转载一篇）"><a href="#PHP类的自动装载-autoload-机制。（转载一篇）" class="headerlink" title="PHP类的自动装载(autoload)机制。（转载一篇）"></a>PHP类的自动装载(autoload)机制。（转载一篇）</h2><p>__autoload()</p>
 <p>当PHP程序在实例化（或调用）一个在当前命名空间没有定义（或引入）的类（或类的静态方法）时，<strong>autoload()函数实现的规则来引入该类。与提前include或require入类文件不同，该方法是在实现一个类的时候才去引入，可以减少引入不必要的类，浪费资源。 但 <strong>autoload()有一个特点是在一次请求的生命周期中只能定义一个该函数，所以在PHP项目日渐庞大或各个项目组合并代码时，可能会造成</strong>autoload()方法的冲突，或者</strong>autoload()方法的实现非常臃肿。 　　PHP官方已不推荐使用该方法，而是推荐使用PHP标准库的spl_autoload_register()，该方法可以注册多个自动加载函数，依次执行，在大型整合项目中使用各自不同的自动加载方法很又用。</p>
 <p>spl_autoload_register()</p>
 <p>spl是Standard PHP Library（PHP标准库）的缩写。spl_autoload_register() 详细介绍请参阅PHP官方文档。该函数作用是将传入的函数注册到“自动加载函数栈”中，PHP遇到调用未定义的类的时候，会从该栈中依次尝试按照相应函数去加载类文件，直到加载成功或加载失败退出。如果已经在通过spl_autoload_register()注册自动加载的程序中实现了<strong>autoload()函数，则</strong>autoload()会失效。如果想使该函数仍然生效，需要把__autoload()注册至spl_autoload_register()：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">spl_autoload_register</span>(<span class="string">&#x27;__autoload&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>spl_autoload()</p>
-<p>在官方手册的spl_autoload_register()例子中，看到有人使用spl_autoload()而不是require()来加载类文件。官方手册对spl_autoload()的解释为：__autoload()函数的默认实现</p>
-<p>SPL autoload机制的实现</p>
-<p>SPL 是Standard PHP Library(标准PHP库)的缩写。它是PHP5引入的一个扩展库，其主要功能包括autoload机制的实现及包括各种Iterator接口或类。 SPL autoload机制的实现是通过将函数指针autoload_func指向自己实现的具有自动装载功能的函数来实现的。SPL有两个不同的函数 spl_autoload, spl_autoload_call，通过将autoload_func指向这两个不同的函数地址来实现不同的自动加载机制。</p>
+<p>在官方手册的spl_autoload_register()例子中，看到有人使用spl_autoload()而不是require()来加载类文件。官方手册对spl_autoload()的解释为：__autoload()函数的默认实现<br>SPL autoload机制的实现<br>SPL 是Standard PHP Library(标准PHP库)的缩写。它是PHP5引入的一个扩展库，其主要功能包括autoload机制的实现及包括各种Iterator接口或类。 SPL autoload机制的实现是通过将函数指针autoload_func指向自己实现的具有自动装载功能的函数来实现的。SPL有两个不同的函数 spl_autoload, spl_autoload_call，通过将autoload_func指向这两个不同的函数地址来实现不同的自动加载机制。</p>
 <p>spl_autoload 是SPL实现的默认的自动加载函数，它的功能比较简单。它可以接收两个参数，第一个参数是$class_name，表示类名，第二个参 数$file_extensions是可选的，表示类文件的扩展名” title&#x3D;”扩展名”&gt;扩展名，可以在$file_extensions中指定多个扩展名” title&#x3D;”扩展名”&gt;扩展名，护展名之间用分号隔开即 可；如果不指定的话，它将使用默认的扩展名” title&#x3D;”扩展名”&gt;扩展名.inc或.php。spl_autoload首先将$class_name变为小写，然后在所有的 include path中搜索$class_name.inc或$class_name.php文件(如果不指定$file_extensions参数的话)，如果找 到，就加载该类文件。你可以手动使用spl_autoload(”Person”, “.class.php”)来加载Person类。实际上，它跟require&#x2F;include差不多，不同的它可以指定多个扩展名” title&#x3D;”扩展名”&gt;扩展名。</p>
 <p>怎 样让spl_autoload自动起作用呢，也就是将autoload_func指向spl_autoload？答案是使用 spl_autoload_register函数。在PHP脚本中第一次调用spl_autoload_register()时不使用任何参数，就可以将 autoload_func指向spl_autoload。</p>
 <p>通过上面的说明我们知道，spl_autoload的功能比较简单，而且它是在SPL扩展中实现的，我们无法扩充它的功能。如果想实现自己的更灵活的自动加载机制怎么办呢？这时，spl_autoload_call函数闪亮登场了。</p>
@@ -407,29 +377,22 @@
 <p>这里面以大牛杯的一道题目easy_unserialize进行讲解</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_1.e2405bdab4.png" alt="clipboard.png"></p>
 <p>这里面可以看一下需要关注的内容：</p>
-<p>1.使用file_put_contents()方法将$this-&gt;params（可控）反序列化以后写入settings.inc文件中</p>
-<p>2.使用ini_set()将$this-&gt;settings（可控）分解成$key和$value设置php.ini的值，在函数执行的时候生效。</p>
-<p>这里面就可以使用<strong>PHP自动载入，</strong>PHP遇到调用未定义的类的时候，会从该栈中依次尝试按照相应函数去加载类文件，会默认加载当前目录下，以类名为文件名，php或者inc为后缀的文件，这里分两步进行：</p>
+<h2 id="1-使用file-put-contents-方法将-this-params（可控）反序列化以后写入settings-inc文件中"><a href="#1-使用file-put-contents-方法将-this-params（可控）反序列化以后写入settings-inc文件中" class="headerlink" title="1.使用file_put_contents()方法将$this-&gt;params（可控）反序列化以后写入settings.inc文件中"></a>1.使用file_put_contents()方法将$this-&gt;params（可控）反序列化以后写入settings.inc文件中</h2><h2 id="2-使用ini-set-将-this-settings（可控）分解成-key和-value设置php-ini的值，在函数执行的时候生效。"><a href="#2-使用ini-set-将-this-settings（可控）分解成-key和-value设置php-ini的值，在函数执行的时候生效。" class="headerlink" title="2.使用ini_set()将$this-&gt;settings（可控）分解成$key和$value设置php.ini的值，在函数执行的时候生效。"></a>2.使用ini_set()将$this-&gt;settings（可控）分解成$key和$value设置php.ini的值，在函数执行的时候生效。</h2><p>这里面就可以使用<strong>PHP自动载入，</strong>PHP遇到调用未定义的类的时候，会从该栈中依次尝试按照相应函数去加载类文件，会默认加载当前目录下，以类名为文件名，php或者inc为后缀的文件，这里分两步进行：</p>
 <p>第一步：（1）借助file_put_contents（）将想要执行的PHP代码序列化以后写入setting.inc文件</p>
-<pre><code>          （2）借助ini_set()将unserialize_callback_func的值注册为spl_autoload_call或者spl_autoload
-</code></pre>
-<p>这样就变成了</p>
+<h3 id="（2）借助ini-set-将unserialize-callback-func的值注册为spl-autoload-call或者spl-autoload"><a href="#（2）借助ini-set-将unserialize-callback-func的值注册为spl-autoload-call或者spl-autoload" class="headerlink" title="（2）借助ini_set()将unserialize_callback_func的值注册为spl_autoload_call或者spl_autoload"></a>（2）借助ini_set()将unserialize_callback_func的值注册为spl_autoload_call或者spl_autoload</h3><p>这样就变成了</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_2.c81df0dc1a.png" alt="clipboard.png"></p>
 <p>第二步：新建一个空的settings类借助unserialize（）来返序列化settings类</p>
 <p>理论上PHP的unserialize()方法会返回反序列化的值，当该值为类，PHP在下面两种情况下会试图自动加载该类</p>
-<p>1.你实现了__autoload（）方法</p>
-<p>2.设置php.ini</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">ini_set</span>(<span class="string">&#x27;unserialize_callback_func&#x27;</span>,<span class="string">&#x27;mycallback&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="1-你实现了-autoload（）方法"><a href="#1-你实现了-autoload（）方法" class="headerlink" title="1.你实现了__autoload（）方法"></a>1.你实现了__autoload（）方法</h2><h2 id="2-设置php-ini"><a href="#2-设置php-ini" class="headerlink" title="2.设置php.ini"></a>2.设置php.ini</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">ini_set</span>(<span class="string">&#x27;unserialize_callback_func&#x27;</span>,<span class="string">&#x27;mycallback&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>当反序列化后，PHP会寻找mycallback这个方法来include这个类文件，如果你没定义这个方法则报错。</p>
-<p>如果既没实现__autoload方法，而且unserialize_callback_func也设为0（如：ini_set(‘unserialize_callback_func’, 0);）， 则不会自动加载该类。 </p>
+<p>如果既没实现__autoload方法，而且unserialize_callback_func也设为0（如：ini_set(‘unserialize_callback_func’, 0);）， 则不会自动加载该类。</p>
 <p>前面在第一步已经写入了setting.inc文件并设置unserialize_callback_func的值为spl_autoload_call，所以就会include这个类名的文件（settings.php或着settings.inc）</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_3.4371471165.png" alt="clipboard.png"></p>
 <p>最后测试一下效果：</p>
 <p>(1)第一步</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_4.d1cbb99600.png" alt="clipboard.png"></p>
-<p>（2）第二步</p>
-<p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_5.75e2269c1c.png" alt="clipboard.png"></p>
+<h3 id="（2）第二步"><a href="#（2）第二步" class="headerlink" title="（2）第二步"></a>（2）第二步</h3><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_5.75e2269c1c.png" alt="clipboard.png"></p>
 <p>参考链接：<a target="_blank" rel="noopener" href="http://blog.huoding.com/2012/04/28/149">http://blog.huoding.com/2012/04/28/149</a></p>
 
             </div>
@@ -453,9 +416,9 @@
         </a>
     
     
-        <a href="/wiki/Windows_Virus-analysis-Packer/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/Windows_Virus-analysis-Chapter_XL/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Windows病毒分析三板斧-壳专项</div>
+            <div class="article-nav-title">Windows病毒分析三板斧-病毒分析练习专项</div>
         </a>
     
 </nav>

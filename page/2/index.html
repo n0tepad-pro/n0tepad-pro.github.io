@@ -190,7 +190,7 @@
                             &nbsp;
                             恶意样本分析（Virus analysis）
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Windows_Virus-analysis-Packer/">Windows病毒分析三板斧-壳专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-Chapter_XL/">Windows病毒分析三板斧-病毒分析练习专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-SilverFox/">Windows病毒分析三板斧-银狐专项</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Windows_Virus-analysis-Chapter_XL/">Windows病毒分析三板斧-病毒分析练习专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-Packer/">Windows病毒分析三板斧-壳专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-SilverFox/">Windows病毒分析三板斧-银狐专项</a></li>  </ul> 
                     </li> 
                      </ul> 
     </div>
@@ -342,11 +342,11 @@
                 
                 
                     
-                    <p><p><strong>PHP的配置文件</strong></p>
-<p>一般主要的配置文件主要有php.ini和httpd.conf，.htaccess文件，（该目录必须设置了AllowOverrideAll 或 Options）进行设置。</p>
-<p>PHP总共有4个配置指令作用域：（PHP中的每个指令都有自己的作用域，指令只能在其作用域中修改，不是任何地方都能修改配置指令的）</p>
-<p>PHP_INI_PERDIR：指令可以在php.ini、httpd.conf或.htaccess文件中修改</p>
-<p>PHP_INI_SYSTEM：指令可以在php.ini 和 httpd.conf 文件中修改</p>
+                    <p><h2 id="PHP的配置文件"><a href="#PHP的配置文件" class="headerlink" title="PHP的配置文件"></a>PHP的配置文件</h2><p>一般主要的配置文件主要有php.ini和httpd.conf，.htaccess文件，（该目录必须设置了AllowOverrideAll 或 Options）进行设置。</p>
+<p>PHP总共有4个配置指令作用域：（PHP中的每个指令都有自己的作用域，指令只能在其作用域中修改，不是任何地方都能修改配置指令的）<br>PHP_INI_PERDIR：指令可以在php.ini、httpd.conf或.htaccess文件中修改<br>PHP_INI_SYSTEM：指令可以在php.ini 和 httpd.conf 文件中修改<br>PHP_INI_USER：指令可以在用户脚本中修改<br>PHP_INI_ALL：指令可以在任何地方修改<br><em>PHP_INI_USER</em><br>可在用户脚本（例如 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/function.ini-set.html">ini_set()</a> ）或 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/configuration.changes.html#configuration.changes.windows">Windows 注册表</a>（自 PHP 5.3 起）以及 <em>.user.ini</em> 中设定<br><em>PHP_INI_PERDIR</em><br>可在 <em>php.ini</em>，*.htaccess* 或 <em>httpd.conf</em> 中设定<br><em>PHP_INI_SYSTEM</em><br>可在 <em>php.ini</em> 或 <em>httpd.conf</em> 中设定<br><em>PHP_INI_ALL</em><br>可在任何地方设定</p>
+<h2 id="1-php-ini"><a href="#1-php-ini" class="headerlink" title="1.php.ini"></a>1.php.ini</h2><h2 id="（1）php-ini的写入和读取"><a href="#（1）php-ini的写入和读取" class="headerlink" title="（1）php.ini的写入和读取"></a>（1）php.ini的写入和读取</h2><p>（1.1）写入【 ini_set()】<br>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，对于虚拟空间来说，很方便，下面为大家介绍下此方法的使用<br>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，脚本结束后，设置失效。无需打开php.ini文件，就能修改配置，对于虚拟空间来说，很方便。</p>
+<p>函数格式：string ini_set(string $varname, string $newvalue)<br>（1.2）读取<br>通过 phpinfo()和 get_cfg_var()函数可以得到配置选项的各个值。</p>
+<h2 id="（2）重要属性讲解"><a href="#（2）重要属性讲解" class="headerlink" title="（2）重要属性讲解"></a>（2）重要属性讲解</h2><p>magic_quotes_gpc</p>
 <p>
                 
             
@@ -355,110 +355,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/PHP-Code_Auditing-PHP_Core_Configuration/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Windows_Virus-analysis-Packer" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%EF%BC%88Virus-analysis%EF%BC%89/">恶意样本分析（Virus analysis）</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Virus-analysis/" rel="tag">Virus analysis</a>, <a class="tag-link-link" href="/tags/Windows/" rel="tag">Windows</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/Windows_Virus-analysis-Packer/">
-            <time datetime="2024-10-16T01:39:31.000Z" itemprop="datePublished">2024-10-16</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/n0tepad-pro/n0tepad-pro.github.io/raw/gh-pages/source/_posts/Windows_Virus-analysis-Packer.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/n0tepad-pro/n0tepad-pro.github.io/edit/gh-pages/source/_posts/Windows_Virus-analysis-Packer.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/n0tepad-pro/n0tepad-pro.github.io/commits/gh-pages/source/_posts/Windows_Virus-analysis-Packer.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/Windows_Virus-analysis-Packer/">Windows病毒分析三板斧-壳专项</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
-<ul>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-</ul>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/Windows_Virus-analysis-Packer/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
@@ -563,6 +459,110 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/Windows_Virus-analysis-Chapter_XL/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Windows_Virus-analysis-Packer" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%EF%BC%88Virus-analysis%EF%BC%89/">恶意样本分析（Virus analysis）</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Virus-analysis/" rel="tag">Virus analysis</a>, <a class="tag-link-link" href="/tags/Windows/" rel="tag">Windows</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Windows_Virus-analysis-Packer/">
+            <time datetime="2024-10-16T01:39:31.000Z" itemprop="datePublished">2024-10-16</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/n0tepad-pro/n0tepad-pro.github.io/raw/gh-pages/source/_posts/Windows_Virus-analysis-Packer.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/n0tepad-pro/n0tepad-pro.github.io/edit/gh-pages/source/_posts/Windows_Virus-analysis-Packer.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/n0tepad-pro/n0tepad-pro.github.io/commits/gh-pages/source/_posts/Windows_Virus-analysis-Packer.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/Windows_Virus-analysis-Packer/">Windows病毒分析三板斧-壳专项</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
+<ul>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+</ul>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/Windows_Virus-analysis-Packer/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
@@ -758,11 +758,11 @@
                 
                 
                     
-                    <p><p>XSS常出现的位置有</p>
-<p>根据XXX划分，分为</p>
-<p>反射型XSS</p>
-<p>存储型XSS</p>
-<p>基于DOM的XSS</p>
+                    <p><p>XSS常出现的位置有<br>根据XXX划分，分为<br>反射型XSS<br>存储型XSS<br>基于DOM的XSS</p>
+<h2 id="常见的XSS输出函数："><a href="#常见的XSS输出函数：" class="headerlink" title="常见的XSS输出函数："></a>常见的XSS输出函数：</h2><p>print()</p>
+<p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.print.php">https://www.php.net/manual/zh/function.print.php</a></p>
+<p>print_r()</p>
+<p><a target="_blank" rel="noopener" href="https://www.php.net/manual/fr/function.print-r.php">https://www.php.net/manual/fr/function.print-r.php</a></p>
 <p>
                 
             
@@ -863,10 +863,10 @@
                 
                     
                     <p><p>针对数据库的操作一般都是增删改查。</p>
-<p>报错注入</p>
-<p>双查询注入：嵌套子查询 ，当在一个聚合函数（比如count函数）后面如果使用分组语句就会把查询的一部分以错误的形式显示出来</p>
-<p>获取URL</p>
-<p>获取GET，POST，COOKIE</p>
+<p>报错注入<br>双查询注入：嵌套子查询 ，当在一个聚合函数（比如count函数）后面如果使用分组语句就会把查询的一部分以错误的形式显示出来<br>获取URL<br>获取GET，POST，COOKIE<br>获取系统变量<br>除了GET，POST，COOKIE，常见的执行SQL语句的函数：</p>
+<p>mysql_connect</p>
+<p>mysql_query</p>
+<p>mysql_fetch_row</p>
 <p>
                 
             
@@ -966,11 +966,11 @@
                 
                 
                     
-                    <p><p><strong>常见的命令执行函数</strong></p>
-<p>system()</p>
-<p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.system.php">https://www.php.net/manual/zh/function.system.php</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.system.php">system() 输出并返回最后一行shell结果</a></p>
+                    <p><h2 id="常见的命令执行函数"><a href="#常见的命令执行函数" class="headerlink" title="常见的命令执行函数"></a>常见的命令执行函数</h2><p>system()</p>
+<p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.system.php">https://www.php.net/manual/zh/function.system.php</a><br><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.system.php">system() 输出并返回最后一行shell结果</a></p>
 <p>exec()</p>
+<p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.exec.php">https://www.php.net/manual/zh/function.exec.php</a><br><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.exec.php">不输出结果，返回最后一行shell结果，所有结果可以保存到一个返回的数组里面。 </a></p>
+<p>passthru()</p>
 <p>
                 
             

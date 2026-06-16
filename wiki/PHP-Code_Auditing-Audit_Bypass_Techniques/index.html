@@ -9,12 +9,12 @@
         <meta name="keywords" content="PHP,Code auditing" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="__1、在file_exists(参数)、normalizer_is_normalized(参数)、echo 参数、 md5(参数)和sha1(参数)中，参数可控的情况下，巧妙利用任意类里面toString()方法里面的危险函数达到目的。 背景：在PHP反序列化中有一个特性是：__toString 当一个对象被当做字符串使用，这里面其实说的很泛，不适合去做漏洞挖掘，根据案例整理了几个被当成字符串执">
+    <meta name="description" content="__1、在file_exists(参数)、normalizer_is_normalized(参数)、echo 参数、 md5(参数)和sha1(参数)中，参数可控的情况下，巧妙利用任意类里面toString()方法里面的危险函数达到目的。背景：在PHP反序列化中有一个特性是：__toString 当一个对象被当做字符串使用，这里面其实说的很泛，不适合去做漏洞挖掘，根据案例整理了几个被当成字符串执行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP代码审计-审计绕过篇">
 <meta property="og:url" content="http://example.com/wiki/PHP-Code_Auditing-Audit_Bypass_Techniques/index.html">
 <meta property="og:site_name" content="n0tepadの技术笔记">
-<meta property="og:description" content="__1、在file_exists(参数)、normalizer_is_normalized(参数)、echo 参数、 md5(参数)和sha1(参数)中，参数可控的情况下，巧妙利用任意类里面toString()方法里面的危险函数达到目的。 背景：在PHP反序列化中有一个特性是：__toString 当一个对象被当做字符串使用，这里面其实说的很泛，不适合去做漏洞挖掘，根据案例整理了几个被当成字符串执">
+<meta property="og:description" content="__1、在file_exists(参数)、normalizer_is_normalized(参数)、echo 参数、 md5(参数)和sha1(参数)中，参数可控的情况下，巧妙利用任意类里面toString()方法里面的危险函数达到目的。背景：在PHP反序列化中有一个特性是：__toString 当一个对象被当做字符串使用，这里面其实说的很泛，不适合去做漏洞挖掘，根据案例整理了几个被当成字符串执行">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_1.f1a359117b.png">
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_2.d57de8dfd9.png">
@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_41.6d51e65e14.png">
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_42.612eb0ced0.png">
 <meta property="article:published_time" content="2026-06-16T06:53:23.000Z">
-<meta property="article:modified_time" content="2026-06-16T09:56:36.991Z">
+<meta property="article:modified_time" content="2026-06-16T10:05:22.814Z">
 <meta property="article:author" content="n0tepad">
 <meta property="article:tag" content="PHP">
 <meta property="article:tag" content="Code auditing">
@@ -237,7 +237,7 @@
                             &nbsp;
                             恶意样本分析（Virus analysis）
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Windows_Virus-analysis-Packer/">Windows病毒分析三板斧-壳专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-Chapter_XL/">Windows病毒分析三板斧-病毒分析练习专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-SilverFox/">Windows病毒分析三板斧-银狐专项</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Windows_Virus-analysis-Chapter_XL/">Windows病毒分析三板斧-病毒分析练习专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-Packer/">Windows病毒分析三板斧-壳专项</a></li>  <li class="file"><a href="/wiki/Windows_Virus-analysis-SilverFox/">Windows病毒分析三板斧-银狐专项</a></li>  </ul> 
                     </li> 
                      </ul> 
     </div>
@@ -371,15 +371,13 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">笔记目录</strong>
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-relation%E4%B8%BA%E7%A9%BA"><span class="toc-number">1.</span> <span class="toc-text">3.$relation为空</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%B8%8D%E8%83%BD%E7%94%A8%E6%8B%AC%E5%8F%B7%E5%92%8C"><span class="toc-number">2.</span> <span class="toc-text">2、不能用括号和&lt;的时候使用语言结构+伪协议实现代码执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RoarCTF-2019-Easy-Calc1"><span class="toc-number">3.</span> <span class="toc-text">[RoarCTF 2019]Easy Calc1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CL%E4%B8%8D%E4%B8%BA0%E7%9A%84GET%E8%AF%B7%E6%B1%82"><span class="toc-number">4.</span> <span class="toc-text">1.CL不为0的GET请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CL-CL"><span class="toc-number">5.</span> <span class="toc-text">2.CL-CL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-CL-TE"><span class="toc-number">6.</span> <span class="toc-text">3.CL-TE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-TE-CL"><span class="toc-number">7.</span> <span class="toc-text">4.TE-CL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-TE-TE"><span class="toc-number">8.</span> <span class="toc-text">5.TE-TE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E5%9C%BA%E6%99%AF%E4%B8%8Bmb-substr-%E4%B8%8Emb-strops-%E7%99%BD%E5%90%8D%E5%8D%95%E7%9A%84%E7%BB%95%E8%BF%87"><span class="toc-number">9.</span> <span class="toc-text">4、文件包含漏洞场景下mb_substr()与mb_strops()+白名单的绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E8%BF%87%E6%BB%A4%E7%A9%BA%E6%A0%BC%E3%80%81%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5%E7%AC%A6%E3%80%81%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E3%80%81bash%E7%AD%89"><span class="toc-number">10.</span> <span class="toc-text">5、过滤空格、命令连接符、特殊符号、bash等</span></a></li></ol>
                 </div>
             
         
         
-            <p>__1、在file_exists(参数)、normalizer_is_normalized(参数)、echo 参数、 md5(参数)和sha1(参数)中，参数可控的情况下，巧妙利用任意类里面<strong>toString()方法里面的危险函数达到目的。</strong></p>
-<p>背景：在PHP反序列化中有一个特性是：__toString 当一个对象被当做字符串使用，这里面其实说的很泛，不适合去做漏洞挖掘，根据案例整理了几个被当成字符串执行的函数。</p>
-<p>例子1：file_exists()</p>
-<p>2019年ThinkPHP 5.1.x爆出来了一个反序列化漏洞，这个利用链用了几个魔术函数打通，具体分析如下：</p>
+            <p>__1、在file_exists(参数)、normalizer_is_normalized(参数)、echo 参数、 md5(参数)和sha1(参数)中，参数可控的情况下，巧妙利用任意类里面<strong>toString()方法里面的危险函数达到目的。</strong><br>背景：在PHP反序列化中有一个特性是：__toString 当一个对象被当做字符串使用，这里面其实说的很泛，不适合去做漏洞挖掘，根据案例整理了几个被当成字符串执行的函数。</p>
+<p>例子1：file_exists()<br>2019年ThinkPHP 5.1.x爆出来了一个反序列化漏洞，这个利用链用了几个魔术函数打通，具体分析如下：</p>
 <p>漏洞的起点为&#x2F;thinkphp&#x2F;library&#x2F;think&#x2F;process&#x2F;pipes&#x2F;Windows.php的__destruct()</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_1.f1a359117b.png" alt="clipboard.png"></p>
 <p>跟进$this-&gt;removeFiles()</p>
@@ -393,10 +391,8 @@
 <p>这里面还有一个比较细节的点，他找了一个$relation-&gt;visible($name)，如果$relation这个可控，就可以通过传入对象，这个对象并没有visible()方法</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_6.7236e240d6.png" alt="clipboard.png"></p>
 <p>这前面有几个判定条件，都是要做payload的前提：</p>
-<p>1&#x2F;$this-&gt;append不为空</p>
-<p>2&#x2F;$name是数组</p>
-<p>3.$relation为空</p>
-<p>这里面$relation的值是 $this-&gt;getRelation($key)，$key是$this-&gt;append的key，所以可控，跟进一下getRelation()</p>
+<p>1&#x2F;$this-&gt;append不为空<br>2&#x2F;$name是数组</p>
+<h2 id="3-relation为空"><a href="#3-relation为空" class="headerlink" title="3.$relation为空"></a>3.$relation为空</h2><p>这里面$relation的值是 $this-&gt;getRelation($key)，$key是$this-&gt;append的key，所以可控，跟进一下getRelation()</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_7.5fbd42c8c4.png" alt="clipboard.png"></p>
 <p>key（也是name）的值是$this-&gt;append的key，$name不为空且键名$name不在$this-&gt;relation数组中，所以可以构造$this-&gt;append &#x3D; [“test”&#x3D;&gt;[“calc”]];，且$this-&gt;relation不赋值，所以经过$this-&gt;getRelation($key)处理后，$relation就变成了空，$relation又经过$this-&gt;getAttr($key)赋值，所以继续跟进$this-&gt;getAttr($key)看一下是否可控</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_8.2e57104c09.png" alt="clipboard.png"></p>
@@ -419,11 +415,9 @@
 <p>参考1：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_15.f42786b936.png" alt="clipboard.png"></p>
 <p>参考2：</p>
-<p> null的类型是null，””的类型是string。双等下看不出来，三等就能看出来了。</p>
+<p>null的类型是null，””的类型是string。双等下看不出来，三等就能看出来了。</p>
 <p>另外有个形象的比喻，如果null代表你没交作业的话，””代表你把本子交了上去但是啥都没写。</p>
-<p>两者类型不一样， “” &#x3D;&#x3D;&#x3D; null &#x2F;&#x2F; 返回false；”” &#x3D;&#x3D; null &#x2F;&#x2F; 返回true</p>
-<p>你试试isset，null的话isset返回false；空串返回的是true</p>
-<p>getFilter()函数最后处理的结果说明$filter可控，$data的值是$this-&gt;param可控，我们传入的是数组，所以array_walk_recursive() 函数调用filterValue()函数，跟进</p>
+<p>两者类型不一样， “” &#x3D;&#x3D;&#x3D; null &#x2F;&#x2F; 返回false；”” &#x3D;&#x3D; null &#x2F;&#x2F; 返回true<br>你试试isset，null的话isset返回false；空串返回的是true<br>getFilter()函数最后处理的结果说明$filter可控，$data的值是$this-&gt;param可控，我们传入的是数组，所以array_walk_recursive() 函数调用filterValue()函数，跟进</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_16.92b5de28e2.png" alt="clipboard.png"></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$value</span>就是<span class="variable">$data</span>，<span class="variable">$data</span>的值是<span class="variable language_">$this</span>-&gt;param可控，<span class="variable">$filters</span>所以<span class="variable">$filter</span>的值就是<span class="variable language_">$this</span>-&gt;filter的值，所以都是可控的，最后的payload</span><br></pre></td></tr></table></figure>
 
@@ -434,8 +428,7 @@
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_19.91353ef778.png" alt="clipboard.png"></p>
 <p>看到了$_GET，应该是从这过来的，最后效果如下：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_20.531bbf565f.png" alt="clipboard.png"></p>
-<p>例子2：normalizer_is_normalized()</p>
-<p>2020年yii2框架也爆出来了一些反序列化漏洞，这个利用链在__wakeup()函数，具体分析如下：</p>
+<p>例子2：normalizer_is_normalized()<br>2020年yii2框架也爆出来了一些反序列化漏洞，这个利用链在__wakeup()函数，具体分析如下：</p>
 <p>漏洞的起点为&#x2F;vendor&#x2F;symfony&#x2F;string&#x2F;UnicodeString.php的__wakeup()函数</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_21.32c180a039.png" alt="clipboard.png"></p>
 <p>这里调用了normalizer_is_normalized()函数，检查提供的字符串是否已经处于指定的规范化形式，会把参数当做字符串处理，这里也可以利用<strong>toString进一步利用，这里面选择前面提到的XmlBuilder类的</strong>toString()，跟进一下</p>
@@ -454,78 +447,50 @@
 <p>例子3：echo</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> 也会把后面的内容当成字符串执行</span><br></pre></td></tr></table></figure>
 
-<p>例子4：md5()和sha1()可以对一个类进行hash，并且会触发这个类的 __toString 方法</p>
-<p>[2020 极客大挑战]Greatphp</p>
-<p><strong>2、不能用括号和&lt;的时候使用语言结构+伪协议实现代码执行</strong></p>
-<p><strong>3、利用PHP的字符串解析特性绕过安全防护软件｜</strong>ASCII绕过黑名单</p>
+<p>例子4：md5()和sha1()可以对一个类进行hash，并且会触发这个类的 __toString 方法<br>[2020 极客大挑战]Greatphp</p>
+<h2 id="2、不能用括号和"><a href="#2、不能用括号和" class="headerlink" title="2、不能用括号和&lt;的时候使用语言结构+伪协议实现代码执行"></a>2、不能用括号和&lt;的时候使用语言结构+伪协议实现代码执行</h2><p><strong>3、利用PHP的字符串解析特性绕过安全防护软件｜</strong>ASCII绕过黑名单</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_28.fd31e7b0f0.png" alt="截图.png"></p>
 <p>参考链接：<a target="_blank" rel="noopener" href="https://www.freebuf.com/column/207936.html">https://www.freebuf.com/column/207936.html</a></p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_29.fed7ae8c6e.png" alt="截图.png"></p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_30.219c443575.png" alt="截图.png"></p>
-<p><strong>[RoarCTF 2019]Easy Calc1</strong></p>
-<p>去掉前面的步骤，找到关键的代码：</p>
+<h2 id="RoarCTF-2019-Easy-Calc1"><a href="#RoarCTF-2019-Easy-Calc1" class="headerlink" title="[RoarCTF 2019]Easy Calc1"></a>[RoarCTF 2019]Easy Calc1</h2><p>去掉前面的步骤，找到关键的代码：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_31.5a06070d45.png" alt="截图.png"></p>
-<p>看到eval()及知道存在代码执行漏洞，可以拼接字符串实现代码执行，但是前提要先绕过一个黑名单，不允许输入</p>
-<p>[‘ ‘, ‘\t’, ‘\r’, ‘\n’,’&#39;‘, ‘“‘, ‘&#96;’, ‘[‘, ‘]’,’$‘,’&#39;,’^‘]</p>
-<p>对于CTF来讲，一般flag文件都放在根目录，所以都先使用内置函数scandir(“&#x2F;“)来访问根目录的所有文件，过滤了“&#x2F;”和“”“，所以可以使用”&#x2F;“该符号的ASCII来进行转化，scandir(“&#x2F;“)是数组形式，所以可以使用var_dump()或者print_r()来对内容进行输出</p>
+<p>看到eval()及知道存在代码执行漏洞，可以拼接字符串实现代码执行，但是前提要先绕过一个黑名单，不允许输入<br>[‘ ‘, ‘\t’, ‘\r’, ‘\n’,’&#39;‘, ‘“‘, ‘&#96;’, ‘[‘, ‘]’,’$‘,’&#39;,’^‘]<br>对于CTF来讲，一般flag文件都放在根目录，所以都先使用内置函数scandir(“&#x2F;“)来访问根目录的所有文件，过滤了“&#x2F;”和“”“，所以可以使用”&#x2F;“该符号的ASCII来进行转化，scandir(“&#x2F;“)是数组形式，所以可以使用var_dump()或者print_r()来对内容进行输出</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_32.ab5d5a0a94.png" alt="截图.png"></p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_33.5781a37885.png" alt="截图.png"></p>
-<p>另一种解法：HTTP请求走私</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xhds/p/12339994.html">https://www.cnblogs.com/xhds/p/12339994.html</a></p>
-<p>HTTP请求走私这一攻击方式很特殊，它不像其他的Web攻击方式那样比较直观，它更多的是在复杂网络环境下，不同的服务器对RFC标准实现的方式不同，程度不同。在现阶段广泛使用的HTTP1.1协议，提供了两种不同方式来指定请求的结束位置，它们是Content-Length标头和Transfer-Encoding标头，Content-Length标头简单明了，它以字节为单位指定消息内容体的长度。</p>
+<p>另一种解法：HTTP请求走私<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xhds/p/12339994.html">https://www.cnblogs.com/xhds/p/12339994.html</a><br>HTTP请求走私这一攻击方式很特殊，它不像其他的Web攻击方式那样比较直观，它更多的是在复杂网络环境下，不同的服务器对RFC标准实现的方式不同，程度不同。在现阶段广泛使用的HTTP1.1协议，提供了两种不同方式来指定请求的结束位置，它们是Content-Length标头和Transfer-Encoding标头，Content-Length标头简单明了，它以字节为单位指定消息内容体的长度。</p>
 <p>Transfer-Encoding标头用于指定消息体使用分块编码（ChunkedEncode），也就是说消息报文由一个或多个数据块组成，每个数据块大小以字节为单位（十六进制表示） 衡量，后跟换行符，然后是块内容，最重要的是：整个消息体以大小为0的块结束，也就是说解析遇到0数据块就结束。</p>
-<p>这就导致如果我们使用如反向代理一类的服务器（后面简称为前端服务器）时，前端和后端系统就请求之间的边界没有达成一致的话，就会产生HTTP走私攻击，很容易使得攻击者绕过安全控制，未经授权访问敏感数据，并直接危害其他应用程序用户</p>
-<p>HTTP请求走私是针对于服务端处理一个或者多个接收http请求序列的方式，进行绕过安全机制，实施未授权访问一种攻击手段，获取敏感信息，并直接危害其他用户。</p>
+<p>这就导致如果我们使用如反向代理一类的服务器（后面简称为前端服务器）时，前端和后端系统就请求之间的边界没有达成一致的话，就会产生HTTP走私攻击，很容易使得攻击者绕过安全控制，未经授权访问敏感数据，并直接危害其他应用程序用户<br>HTTP请求走私是针对于服务端处理一个或者多个接收http请求序列的方式，进行绕过安全机制，实施未授权访问一种攻击手段，获取敏感信息，并直接危害其他用户。</p>
 <p>请求走私大多发生于前端服务器和后端服务器对客户端传入的数据理解不一致的情况。这是因为HTTP规范提供了两种不同的方法来指定请求的结束位置，即 Content-Length 和 Transfer-Encoding标头。</p>
-<p>分类</p>
-<p>CLTE：前端服务器使用 Content-Length头，后端服务器使用 Transfer-Encoding头</p>
-<p>TECL：前端服务器使用 Transfer-Encoding 标头，后端服务器使用 Content-Length标头。</p>
+<p>分类<br>CLTE：前端服务器使用 Content-Length头，后端服务器使用 Transfer-Encoding头<br>TECL：前端服务器使用 Transfer-Encoding 标头，后端服务器使用 Content-Length标头。</p>
 <p>TETE：前端和后端服务器都支持 Transfer-Encoding标头，但是可以通过以某种方式来诱导其中一个服务器不处理它。</p>
 <p>【5种攻击方法】</p>
-<p>1.CL不为0的GET请求</p>
-<p>当前端服务器允许GET请求携带请求体，而后端服务器不允许GET请求携带请求体，它会直接忽略掉GET请求中的 Content-Length 头，不进行处理。例如下面这个例子：</p>
+<h2 id="1-CL不为0的GET请求"><a href="#1-CL不为0的GET请求" class="headerlink" title="1.CL不为0的GET请求"></a>1.CL不为0的GET请求</h2><p>当前端服务器允许GET请求携带请求体，而后端服务器不允许GET请求携带请求体，它会直接忽略掉GET请求中的 Content-Length 头，不进行处理。例如下面这个例子：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_34.c6d288e92b.png" alt="截图.png"></p>
 <p>前端服务器处理了 Content-Length ，而后端服务器没有处理 Content-Length ，基于pipeline机制认为这是两个独立的请求，就造成了漏洞的发生。</p>
-<p>2.CL-CL</p>
-<p>根据RFC 7230，当服务器收到的请求中包含两个 Content-Length ，而且两者的值不同时，需要返回400错误，但是有的服务器并没有严格实现这个规范。这种情况下，当前后端各取不同的 Content-Length 值时，就会出现漏洞。例如：</p>
-<p> 这个例子中a就会被带入下一个请求，变为** aGET &#x2F; HTTP&#x2F;1.1\r\n 。**</p>
-<p>3.CL-TE</p>
-<p>RFC2616规范</p>
-<p>&#x2F;&#x2F;如果收到同时存在Content-Length和Transfer-Encoding这两个请求头的请求包时，在处理的时候必须忽略Content-Length。</p>
+<h2 id="2-CL-CL"><a href="#2-CL-CL" class="headerlink" title="2.CL-CL"></a>2.CL-CL</h2><p>根据RFC 7230，当服务器收到的请求中包含两个 Content-Length ，而且两者的值不同时，需要返回400错误，但是有的服务器并没有严格实现这个规范。这种情况下，当前后端各取不同的 Content-Length 值时，就会出现漏洞。例如：</p>
+<p>这个例子中a就会被带入下一个请求，变为** aGET &#x2F; HTTP&#x2F;1.1\r\n 。**</p>
+<h2 id="3-CL-TE"><a href="#3-CL-TE" class="headerlink" title="3.CL-TE"></a>3.CL-TE</h2><p>RFC2616规范<br>&#x2F;&#x2F;如果收到同时存在Content-Length和Transfer-Encoding这两个请求头的请求包时，在处理的时候必须忽略Content-Length。</p>
 <p>&#x2F;&#x2F;所以请求包中同时包含这两个请求头并不算违规，服务器也不需要返回400错误。导致服务器在这里的实现更容易出问题。</p>
 <p>CL-TE指前端服务器处理 Content-Length 这一请求头，而后端服务器遵守RFC2616的规定，忽略掉 Content-Length ，处理 Transfer-Encoding 。</p>
 <p>这个例子中a同样会被带入下一个请求，变为 aGET &#x2F; HTTP&#x2F;1.1\r\n</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_35.6e16d33603.png" alt="截图.png"></p>
-<p>4.TE-CL</p>
-<p>TE-CL指前端服务器处理 Transfer-Encoding 请求头，而后端服务器处理 Content-Length 请求头。例如：</p>
-<p>5.TE-TE</p>
-<p>TE-TE指前后端服务器都处理 Transfer-Encoding 请求头，但是在容错性上表现不同，例如有的服务器可能会处理 Transfer-encoding ，测试例如：</p>
+<h2 id="4-TE-CL"><a href="#4-TE-CL" class="headerlink" title="4.TE-CL"></a>4.TE-CL</h2><p>TE-CL指前端服务器处理 Transfer-Encoding 请求头，而后端服务器处理 Content-Length 请求头。例如：</p>
+<h2 id="5-TE-TE"><a href="#5-TE-TE" class="headerlink" title="5.TE-TE"></a>5.TE-TE</h2><p>TE-TE指前后端服务器都处理 Transfer-Encoding 请求头，但是在容错性上表现不同，例如有的服务器可能会处理 Transfer-encoding ，测试例如：</p>
 <p>参考学习:<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/6654">https://xz.aliyun.com/t/6654</a></p>
-<p>4、文件包含漏洞场景下mb_substr()与mb_strops()+白名单的绕过</p>
-<p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_36.ba42f3ca1b.png" alt="截图.png"></p>
+<h2 id="4、文件包含漏洞场景下mb-substr-与mb-strops-白名单的绕过"><a href="#4、文件包含漏洞场景下mb-substr-与mb-strops-白名单的绕过" class="headerlink" title="4、文件包含漏洞场景下mb_substr()与mb_strops()+白名单的绕过"></a>4、文件包含漏洞场景下mb_substr()与mb_strops()+白名单的绕过</h2><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_36.ba42f3ca1b.png" alt="截图.png"></p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_37.c82be74b4e.png" alt="截图.png"></p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_38.67746f228b.png" alt="截图.png"></p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_39.6db035c379.png" alt="截图.png"></p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_40.23c638f031.png" alt="截图.png"></p>
-<p>5、过滤空格、命令连接符、特殊符号、bash等</p>
-<p>比如[GXYCTF2019]Ping Ping Ping这个题目：</p>
+<h2 id="5、过滤空格、命令连接符、特殊符号、bash等"><a href="#5、过滤空格、命令连接符、特殊符号、bash等" class="headerlink" title="5、过滤空格、命令连接符、特殊符号、bash等"></a>5、过滤空格、命令连接符、特殊符号、bash等</h2><p>比如[GXYCTF2019]Ping Ping Ping这个题目：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_41.6d51e65e14.png" alt="截图.png"></p>
 <p>这个正则表达式过滤了很多“危险字符”，包括但不限于：</p>
 <p>命令连接符和特殊符号：</p>
-<p>&amp;：命令连接</p>
-<p>&#x2F;：路径</p>
+<p>&amp;：命令连接<br>&#x2F;：路径</p>
 <p>?、*：通配符</p>
-<p>&lt;、&gt;：重定向</p>
-<p>\：转义</p>
-<p>‘、”：字符串包裹</p>
-<p>(、)、[、]、{、}：子命令、数组等</p>
-<p>控制字符：</p>
-<p>[\x{00}-\x{1f}]：ASCII 控制字符（包括回车、换行、制表符等）</p>
-<p>过滤空格（ ）</p>
-<p>关键字过滤 - bash</p>
-<p>关键字过滤 - flag</p>
-<p>这里面可以使用;进行命令截断，然后使用cat flag命令读取flag，</p>
-<p>这里面空格和flag都被过滤了，空格可以用$IFS$1，bash可以用sh替换,可以使用管道符号echo Y2F0IGZsYWcucGhw | base64 -d | sh（第一个 | 把 echo 的输出传给 base64 -d，第二个 | 把 base64 -d 的输出再传给 sh）</p>
+<p>&lt;、&gt;：重定向<br>\：转义<br>‘、”：字符串包裹<br>(、)、[、]、{、}：子命令、数组等<br>控制字符：</p>
+<p>[\x{00}-\x{1f}]：ASCII 控制字符（包括回车、换行、制表符等）<br>过滤空格（ ）<br>关键字过滤 - bash<br>关键字过滤 - flag<br>这里面可以使用;进行命令截断，然后使用cat flag命令读取flag，<br>这里面空格和flag都被过滤了，空格可以用$IFS$1，bash可以用sh替换,可以使用管道符号echo Y2F0IGZsYWcucGhw | base64 -d | sh（第一个 | 把 echo 的输出传给 base64 -d，第二个 | 把 base64 -d 的输出再传给 sh）</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_42.612eb0ced0.png" alt="截图.png"></p>
 
             </div>
