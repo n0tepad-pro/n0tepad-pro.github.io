@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_4.d1cbb99600.png">
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Core_Configuration/PHP-Code_Auditing-PHP_Core_Configuration_5.75e2269c1c.png">
 <meta property="article:published_time" content="2026-06-16T06:41:50.000Z">
-<meta property="article:modified_time" content="2026-06-16T10:19:33.602Z">
+<meta property="article:modified_time" content="2026-06-16T10:21:44.116Z">
 <meta property="article:author" content="n0tepad">
 <meta property="article:tag" content="PHP">
 <meta property="article:tag" content="Code auditing">
@@ -334,7 +334,7 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">笔记目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">PHP的配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%881%EF%BC%89php-ini%E7%9A%84%E5%86%99%E5%85%A5%E5%92%8C%E8%AF%BB%E5%8F%96"><span class="toc-number">2.</span> <span class="toc-text">（1）php.ini的写入和读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7%E8%AE%B2%E8%A7%A3"><span class="toc-number">3.</span> <span class="toc-text">（2）重要属性讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP%E7%B1%BB%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A3%85%E8%BD%BD-autoload-%E6%9C%BA%E5%88%B6%E3%80%82%EF%BC%88%E8%BD%AC%E8%BD%BD%E4%B8%80%E7%AF%87%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">PHP类的自动装载(autoload)机制。（转载一篇）</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">PHP的配置文件</span></a></li></ol>
                 </div>
             
         
@@ -344,10 +344,10 @@
 <ul>
 <li>1.php.ini</li>
 </ul>
-<h2 id="（1）php-ini的写入和读取"><a href="#（1）php-ini的写入和读取" class="headerlink" title="（1）php.ini的写入和读取"></a>（1）php.ini的写入和读取</h2><h3 id="（1-1）写入【-ini-set-】"><a href="#（1-1）写入【-ini-set-】" class="headerlink" title="（1.1）写入【 ini_set()】"></a>（1.1）写入【 ini_set()】</h3><p>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，对于虚拟空间来说，很方便，下面为大家介绍下此方法的使用<br>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，脚本结束后，设置失效。无需打开php.ini文件，就能修改配置，对于虚拟空间来说，很方便。</p>
+<h3 id="（1）php-ini的写入和读取"><a href="#（1）php-ini的写入和读取" class="headerlink" title="（1）php.ini的写入和读取"></a>（1）php.ini的写入和读取</h3><h3 id="（1-1）写入【-ini-set-】"><a href="#（1-1）写入【-ini-set-】" class="headerlink" title="（1.1）写入【 ini_set()】"></a>（1.1）写入【 ini_set()】</h3><p>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，对于虚拟空间来说，很方便，下面为大家介绍下此方法的使用<br>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，脚本结束后，设置失效。无需打开php.ini文件，就能修改配置，对于虚拟空间来说，很方便。</p>
 <p>函数格式：string ini_set(string $varname, string $newvalue)</p>
 <h3 id="（1-2）读取"><a href="#（1-2）读取" class="headerlink" title="（1.2）读取"></a>（1.2）读取</h3><p>通过 phpinfo()和 get_cfg_var()函数可以得到配置选项的各个值。</p>
-<h2 id="（2）重要属性讲解"><a href="#（2）重要属性讲解" class="headerlink" title="（2）重要属性讲解"></a>（2）重要属性讲解</h2><p>magic_quotes_gpc</p>
+<h3 id="（2）重要属性讲解"><a href="#（2）重要属性讲解" class="headerlink" title="（2）重要属性讲解"></a>（2）重要属性讲解</h3><p>magic_quotes_gpc</p>
 <p>PHP解析器就会自动为post、get、cookie过来的数据增加转义字符“\”，以确保这些数据不会引起程序，特别是数据库语句因为特殊字符（认为是php的字符）引起的污染而出现致命的错误 。插入后在数据库里显示的是转义前的原始数据，所以取出来不用转义。<br>如果输入的数据有单引号（’）、双引号（”）、反斜线（\）与 NUL（NULL 字符）等字符都会被加上反斜线。<br>PHP中get_magic_quotes_gpc()函数是内置的函数，这个函数的作用就是得到php.ini设置中magic_quotes_gpc选项的值，PHP6中删除了magic_quotes_gpc这个选项<br>当magic_quotes_gpc&#x3D;On的时候，函数get_magic_quotes_gpc()就会返回1<br>当magic_quotes_gpc&#x3D;Off的时候，函数get_magic_quotes_gpc()就会返回0</p>
 <p>safr_mode&#x3D;OFF<br>避免各种奇奇怪怪的错误<br>register_globals</p>
 <p>注册全局变量</p>
@@ -366,7 +366,8 @@
 <p>Options FollowSymLinks<br>php_admin_value safe_mode1</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">Directory</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="PHP类的自动装载-autoload-机制。（转载一篇）"><a href="#PHP类的自动装载-autoload-机制。（转载一篇）" class="headerlink" title="PHP类的自动装载(autoload)机制。（转载一篇）"></a>PHP类的自动装载(autoload)机制。（转载一篇）</h2><table>
+<p>PHP类的自动装载(autoload)机制。（转载一篇）</p>
+<table>
 <thead>
 <tr>
 <th>名称</th>

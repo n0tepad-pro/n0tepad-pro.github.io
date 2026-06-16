@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_41.6d51e65e14.png">
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_42.612eb0ced0.png">
 <meta property="article:published_time" content="2026-06-16T06:53:23.000Z">
-<meta property="article:modified_time" content="2026-06-16T10:19:33.526Z">
+<meta property="article:modified_time" content="2026-06-16T10:21:44.029Z">
 <meta property="article:author" content="n0tepad">
 <meta property="article:tag" content="PHP">
 <meta property="article:tag" content="Code auditing">
@@ -371,7 +371,7 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">笔记目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%B8%8D%E8%83%BD%E7%94%A8%E6%8B%AC%E5%8F%B7%E5%92%8C"><span class="toc-number">1.</span> <span class="toc-text">2、不能用括号和&lt;的时候使用语言结构+伪协议实现代码执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RoarCTF-2019-Easy-Calc1"><span class="toc-number">2.</span> <span class="toc-text">[RoarCTF 2019]Easy Calc1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E5%9C%BA%E6%99%AF%E4%B8%8Bmb-substr-%E4%B8%8Emb-strops-%E7%99%BD%E5%90%8D%E5%8D%95%E7%9A%84%E7%BB%95%E8%BF%87"><span class="toc-number">3.</span> <span class="toc-text">4、文件包含漏洞场景下mb_substr()与mb_strops()+白名单的绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E8%BF%87%E6%BB%A4%E7%A9%BA%E6%A0%BC%E3%80%81%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5%E7%AC%A6%E3%80%81%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E3%80%81bash%E7%AD%89"><span class="toc-number">4.</span> <span class="toc-text">5、过滤空格、命令连接符、特殊符号、bash等</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%B8%8D%E8%83%BD%E7%94%A8%E6%8B%AC%E5%8F%B7%E5%92%8C"><span class="toc-number">1.</span> <span class="toc-text">2、不能用括号和&lt;的时候使用语言结构+伪协议实现代码执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E5%9C%BA%E6%99%AF%E4%B8%8Bmb-substr-%E4%B8%8Emb-strops-%E7%99%BD%E5%90%8D%E5%8D%95%E7%9A%84%E7%BB%95%E8%BF%87"><span class="toc-number">2.</span> <span class="toc-text">4、文件包含漏洞场景下mb_substr()与mb_strops()+白名单的绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E8%BF%87%E6%BB%A4%E7%A9%BA%E6%A0%BC%E3%80%81%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5%E7%AC%A6%E3%80%81%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E3%80%81bash%E7%AD%89"><span class="toc-number">3.</span> <span class="toc-text">5、过滤空格、命令连接符、特殊符号、bash等</span></a></li></ol>
                 </div>
             
         
@@ -456,7 +456,7 @@
 <p>参考链接：<a target="_blank" rel="noopener" href="https://www.freebuf.com/column/207936.html">https://www.freebuf.com/column/207936.html</a></p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_29.fed7ae8c6e.png" alt="截图.png"></p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_30.219c443575.png" alt="截图.png"></p>
-<h2 id="RoarCTF-2019-Easy-Calc1"><a href="#RoarCTF-2019-Easy-Calc1" class="headerlink" title="[RoarCTF 2019]Easy Calc1"></a>[RoarCTF 2019]Easy Calc1</h2><p>去掉前面的步骤，找到关键的代码：</p>
+<p>[RoarCTF 2019]Easy Calc1<br>去掉前面的步骤，找到关键的代码：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_31.5a06070d45.png" alt="截图.png"></p>
 <p>看到eval()及知道存在代码执行漏洞，可以拼接字符串实现代码执行，但是前提要先绕过一个黑名单，不允许输入<br>[‘ ‘, ‘\t’, ‘\r’, ‘\n’,’&#39;‘, ‘“‘, ‘&#96;’, ‘[‘, ‘]’,’$‘,’&#39;,’^‘]<br>对于CTF来讲，一般flag文件都放在根目录，所以都先使用内置函数scandir(“&#x2F;“)来访问根目录的所有文件，过滤了“&#x2F;”和“”“，所以可以使用”&#x2F;“该符号的ASCII来进行转化，scandir(“&#x2F;“)是数组形式，所以可以使用var_dump()或者print_r()来对内容进行输出</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-Audit_Bypass_Techniques/PHP-Code_Auditing-Audit_Bypass_Techniques_32.ab5d5a0a94.png" alt="截图.png"></p>

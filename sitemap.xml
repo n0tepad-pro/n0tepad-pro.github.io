@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-XXE_Vulnerability/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/wiki/PHP-Code_Auditing-Variable_Overwrite_Vulnerability/</loc>
     
     <lastmod>2026-06-16</lastmod>
@@ -120,6 +111,15 @@
   
   <url>
     <loc>http://example.com/wiki/PHP-Code_Auditing-Audit_Bypass_Techniques/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-XXE_Vulnerability/</loc>
     
     <lastmod>2026-06-16</lastmod>
     
