@@ -344,9 +344,9 @@
                     
                     <p><h2 id="PHP的配置文件"><a href="#PHP的配置文件" class="headerlink" title="PHP的配置文件"></a>PHP的配置文件</h2><p>一般主要的配置文件主要有php.ini和httpd.conf，.htaccess文件，（该目录必须设置了AllowOverrideAll 或 Options）进行设置。</p>
 <p>PHP总共有4个配置指令作用域：（PHP中的每个指令都有自己的作用域，指令只能在其作用域中修改，不是任何地方都能修改配置指令的）<br>PHP_INI_PERDIR：指令可以在php.ini、httpd.conf或.htaccess文件中修改<br>PHP_INI_SYSTEM：指令可以在php.ini 和 httpd.conf 文件中修改<br>PHP_INI_USER：指令可以在用户脚本中修改<br>PHP_INI_ALL：指令可以在任何地方修改<br><em>PHP_INI_USER</em><br>可在用户脚本（例如 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/function.ini-set.html">ini_set()</a> ）或 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/configuration.changes.html#configuration.changes.windows">Windows 注册表</a>（自 PHP 5.3 起）以及 <em>.user.ini</em> 中设定<br><em>PHP_INI_PERDIR</em><br>可在 <em>php.ini</em>，*.htaccess* 或 <em>httpd.conf</em> 中设定<br><em>PHP_INI_SYSTEM</em><br>可在 <em>php.ini</em> 或 <em>httpd.conf</em> 中设定<br><em>PHP_INI_ALL</em><br>可在任何地方设定</p>
-<h2 id="1-php-ini"><a href="#1-php-ini" class="headerlink" title="1.php.ini"></a>1.php.ini</h2><h2 id="（1）php-ini的写入和读取"><a href="#（1）php-ini的写入和读取" class="headerlink" title="（1）php.ini的写入和读取"></a>（1）php.ini的写入和读取</h2><p>（1.1）写入【 ini_set()】<br>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，对于虚拟空间来说，很方便，下面为大家介绍下此方法的使用<br>PHP ini_set用来设置php.ini的值，在函数执行的时候生效，脚本结束后，设置失效。无需打开php.ini文件，就能修改配置，对于虚拟空间来说，很方便。</p>
-<p>函数格式：string ini_set(string $varname, string $newvalue)<br>（1.2）读取<br>通过 phpinfo()和 get_cfg_var()函数可以得到配置选项的各个值。</p>
-<h2 id="（2）重要属性讲解"><a href="#（2）重要属性讲解" class="headerlink" title="（2）重要属性讲解"></a>（2）重要属性讲解</h2><p>magic_quotes_gpc</p>
+<ul>
+<li>1.php.ini</li>
+</ul>
 <p>
                 
             
@@ -760,9 +760,9 @@
                     
                     <p><p>XSS常出现的位置有<br>根据XXX划分，分为<br>反射型XSS<br>存储型XSS<br>基于DOM的XSS</p>
 <h2 id="常见的XSS输出函数："><a href="#常见的XSS输出函数：" class="headerlink" title="常见的XSS输出函数："></a>常见的XSS输出函数：</h2><p>print()</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.php.net/manual/zh/function.print.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```text</span><br><span class="line">https://www.php.net/manual/zh/function.print.php</span><br></pre></td></tr></table></figure>
 
-<p>print_r()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">print_r()</span><br><span class="line"></span><br><span class="line">```text</span><br><span class="line">```text</span><br><span class="line">https://www.php.net/manual/fr/function.print-r.php</span><br></pre></td></tr></table></figure>
 <p>
                 
             

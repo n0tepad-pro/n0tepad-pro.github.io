@@ -214,7 +214,7 @@
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_194.f04e2b1eb8.png">
 <meta property="og:image" content="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_195.0a30bc208a.png">
 <meta property="article:published_time" content="2026-06-16T06:53:03.000Z">
-<meta property="article:modified_time" content="2026-06-16T10:05:22.898Z">
+<meta property="article:modified_time" content="2026-06-16T10:19:33.621Z">
 <meta property="article:author" content="n0tepad">
 <meta property="article:tag" content="PHP">
 <meta property="article:tag" content="Code auditing">
@@ -526,7 +526,7 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">笔记目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%881%EF%BC%89intval-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%BD%93%E5%AF%BC%E8%87%B4%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">（1）intval()使用不当导致安全漏洞的分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-if-intval-tb-id"><span class="toc-number">2.</span> <span class="toc-text">1.if ( !intval( $tb_id ) )</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-if-empty-title-empty-tb-url-empty-blog-name"><span class="toc-number">3.</span> <span class="toc-text">2.if (empty($title) &amp;&amp; empty($tb_url) &amp;&amp; empty($blog_name))</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-if-empty-tb-url-empty-title-empty-tb-url"><span class="toc-number">4.</span> <span class="toc-text">3.if ( !empty($tb_url) &amp;&amp; !empty($title) &amp;&amp; !empty($tb_url) )</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-extract-%E5%87%BD%E6%95%B0%E7%9B%B4%E6%8E%A5%E5%8C%85%E8%A3%B9%E4%BA%86%E6%89%80%E6%9C%89-GET%E7%9A%84%E5%8F%82%E6%95%B0%EF%BC%8C%E6%89%80%E4%BB%A5%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87%E4%BC%A0%E5%85%A5%E5%A4%9A%E4%BD%99%E7%9A%84%E9%94%AE%E5%80%BC%E5%AF%B9%E8%B5%8B%E5%80%BC"><span class="toc-number">5.</span> <span class="toc-text">1.extract()函数直接包裹了所有$_GET的参数，所以可以通过传入多余的键值对赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-getenv-%E5%87%BD%E6%95%B0%E5%9C%A8IIS%E4%B8%8B%E4%BC%9A%E5%A4%B1%E6%95%88"><span class="toc-number">6.</span> <span class="toc-text">2.getenv()函数在IIS下会失效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-SERVER-%E2%80%98REMOTE-ADDR%E2%80%99-%E6%98%AF%E5%8F%AF%E6%8E%A7%E7%9A%84"><span class="toc-number">7.</span> <span class="toc-text">3.$_SERVER[‘REMOTE_ADDR’]是可控的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Discuz-6-x-7-x-%E7%89%88%E6%9C%AC-%E5%89%8D%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E"><span class="toc-number">8.</span> <span class="toc-text">Discuz! 6.x&#x2F;7.x 版本 前台任意代码执行漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-php-ini%E9%85%8D%E7%BD%AE%E9%A1%B9%E4%B8%ADrequest-order%E4%B8%BAGP"><span class="toc-number">9.</span> <span class="toc-text">1.php.ini配置项中request_order为GP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-preg-replace-%E5%87%BD%E6%95%B0%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%E5%8F%AF%E6%8E%A7%EF%BC%8C%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%E4%B9%9F%E5%8F%AF%E6%8E%A7"><span class="toc-number">10.</span> <span class="toc-text">2.preg_replace()函数第一个参数可控，第二个参数也可控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%80%E4%B8%AA%E6%98%AF%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="toc-number">11.</span> <span class="toc-text">1.一个是写入文件的位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%98%AF%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">12.</span> <span class="toc-text">2.另一个是写入文件的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%B7%AF%E7%94%B1%E5%8F%AF%E8%BE%BE"><span class="toc-number">13.</span> <span class="toc-text">1.路由可达</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8%E4%BA%86Cache-set-%EF%BC%8C%E4%B8%94%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%E5%9B%BA%E5%AE%9A%E6%88%96%E8%80%85%E5%8F%AF%E6%8E%A7%EF%BC%8C%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%80%BC%E5%8F%AF%E6%8E%A7"><span class="toc-number">14.</span> <span class="toc-text">2.使用了Cache::set()，且第一个参数固定或者可控，第二个值可控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%86%8D%E5%88%A9%E7%94%A8%E7%89%88%E6%9C%AC"><span class="toc-number">15.</span> <span class="toc-text">3.再利用版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%887%EF%BC%89%E5%80%9F%E7%94%A8%E5%8F%8D%E5%B0%84%E6%9D%A5%E5%AE%9E%E7%8E%B0%E5%8D%B1%E9%99%A9%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8"><span class="toc-number">16.</span> <span class="toc-text">（7）借用反射来实现危险函数的调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reflection-%E5%8F%8D%E5%B0%84-%E6%98%AFJava%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E5%BE%81%E4%B9%8B%E4%B8%80%EF%BC%8C%E5%AE%83%E5%85%81%E8%AE%B8%E8%BF%90%E8%A1%8C%E4%B8%AD%E7%9A%84Java%E7%A8%8B%E5%BA%8F%E5%AF%B9%E8%87%AA%E8%BA%AB%E8%BF%9B%E8%A1%8C%E6%A3%80%E6%9F%A5%EF%BC%8C%E6%88%96%E8%80%85%E8%AF%B4%E2%80%9C%E8%87%AA%E5%AE%A1%E2%80%9D%EF%BC%8C%E5%B9%B6%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%93%8D%E4%BD%9C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%86%85%E9%83%A8%E5%B1%9E%E6%80%A7%E3%80%82"><span class="toc-number">17.</span> <span class="toc-text">Reflection(反射)是Java程序开发语言的特征之一，它允许运行中的Java程序对自身进行检查，或者说“自审”，并能直接操作程序的内部属性。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">18.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP%E5%8F%8D%E5%B0%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">19.</span> <span class="toc-text">PHP反射的基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%8F%8D%E5%B0%84%E7%B1%BB"><span class="toc-number">20.</span> <span class="toc-text">1、反射类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%8F%8D%E5%B0%84%E6%96%B9%E6%B3%95"><span class="toc-number">21.</span> <span class="toc-text">2、反射方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%8F%8D%E5%B0%84%E7%B1%BB%E5%92%8C%E5%8F%8D%E5%B0%84%E6%96%B9%E6%B3%95%E4%B8%AD%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-number">22.</span> <span class="toc-text">3、反射类和反射方法中其他常用的用法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%80%BB%E8%A2%AB%E5%BF%BD%E7%95%A5%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3"><span class="toc-number">23.</span> <span class="toc-text">(8)总被忽略的文件上传接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%889%EF%BC%89%E4%BB%A5%E7%99%BD%E7%9B%92%E8%A7%86%E8%A7%92%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%9C%A8%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91"><span class="toc-number">24.</span> <span class="toc-text">（9）以白盒视角文件上传在黑盒测试中的逻辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%8D%E8%BF%87%E6%BB%A4%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80%E5%90%8D"><span class="toc-number">25.</span> <span class="toc-text">1.不过滤文件后缀名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80%E5%90%8D%E7%99%BD%E5%90%8D%E5%8D%95%E8%BF%87%E6%BB%A4"><span class="toc-number">26.</span> <span class="toc-text">2.文件后缀名白名单过滤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80%E5%90%8D%E9%BB%91%E5%90%8D%E5%8D%95%E8%BF%87%E6%BB%A4"><span class="toc-number">27.</span> <span class="toc-text">3.文件后缀名黑名单过滤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PS%EF%BC%9A%E5%9C%A8%E5%AE%9E%E6%88%98%E4%B8%AD%E7%BB%8F%E5%B8%B8%E9%81%87%E5%88%B0%E4%B8%80%E4%B8%AA%E5%9C%BA%E6%99%AF%EF%BC%8C%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%B2%A1%E6%9C%89%E5%9B%9E%E6%98%BE%E8%B7%AF%E5%BE%84%EF%BC%8C%E9%80%9A%E5%B8%B8%E5%8F%AF%E4%BB%A5%E6%89%BE%E5%88%B0%E5%85%B6%E4%BB%96%E5%B8%A6%E6%9C%89%E5%9B%BE%E7%89%87%E6%88%96%E8%80%85%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E7%9A%84%E4%BD%8D%E7%BD%AE%E6%8A%93%E5%8C%85%E6%88%96%E8%80%85F12%EF%BC%8C%E7%9C%8B%E4%B8%80%E4%B8%8B%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E6%89%80%E5%9C%A8%E7%9A%84%E8%B7%AF%E5%BE%84%EF%BC%88%E4%B8%80%E8%88%AC%E5%86%8D%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E7%9A%84uplaod%E7%9B%AE%E5%BD%95%E4%B8%8B%EF%BC%89%EF%BC%8C%E7%84%B6%E5%90%8E%E5%86%8D%E5%B0%9D%E8%AF%95%E6%8A%8A%E4%B8%8A%E4%BC%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E6%8B%BC%E6%8E%A5%E5%9C%A8%E5%90%8E%E9%9D%A2%EF%BC%8C%E7%84%B6%E5%90%8E%E8%AE%BF%E9%97%AE%E3%80%82"><span class="toc-number">28.</span> <span class="toc-text">PS：在实战中经常遇到一个场景，上传文件没有回显路径，通常可以找到其他带有图片或者上传文件的位置抓包或者F12，看一下这个文件所在的路径（一般再相对路径的uplaod目录下），然后再尝试把上传的文件名拼接在后面，然后访问。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E8%A2%AB%E5%BF%BD%E7%95%A5%E7%9A%84key%E5%80%BC%E6%B3%A8%E5%85%A5"><span class="toc-number">29.</span> <span class="toc-text">(11)被忽略的key值注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%B7%AF%E7%94%B1%E5%8F%AF%E8%BE%BE-1"><span class="toc-number">30.</span> <span class="toc-text">1.路由可达</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-img%E5%8F%AF%E6%8E%A7%E4%B8%94%E5%80%BC%E6%89%80%E5%AF%B9%E5%BA%94%E7%9A%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%9C%A8"><span class="toc-number">31.</span> <span class="toc-text">2.$img可控且值所对应的文件存在</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-dir%E5%8F%82%E6%95%B0%E5%92%8C-imgname%E8%A6%81%E5%AD%98%E5%9C%A8"><span class="toc-number">32.</span> <span class="toc-text">3.$dir参数和$imgname要存在</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%8813%EF%BC%89%E4%B8%80%E6%AC%A1%E6%80%A7%E8%BF%87%E6%BB%A4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">33.</span> <span class="toc-text">（13）一次性过滤引发的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E9%80%9A%E8%BF%87%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F%E7%9A%84%E5%BC%95%E5%85%A5%E5%AF%BC%E8%87%B4%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="toc-number">34.</span> <span class="toc-text">(14)通过系统变量的引入导致命令执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E5%92%8C-%E5%8F%B7%E5%AF%BC%E8%87%B4%E7%9A%84%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E"><span class="toc-number">35.</span> <span class="toc-text">16.&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;号导致的安全漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%90%E4%BD%BF%E7%94%A8-%E7%9A%84%E5%9C%BA%E6%99%AF%E3%80%91"><span class="toc-number">36.</span> <span class="toc-text">【使用&#x3D;&#x3D;的场景】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89-%E6%98%AF%E6%9D%BE%E6%95%A3%E6%AF%94%E8%BE%83%EF%BC%8C%E5%8F%AA%E6%AF%94%E8%BE%83%E5%80%BC%EF%BC%8C%E4%B8%8D%E6%AF%94%E8%BE%83%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%82"><span class="toc-number">36.1.</span> <span class="toc-text">（1）&#x3D;&#x3D;是松散比较，只比较值，不比较数据类型。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%890e-%E7%BA%AF%E6%95%B0%E5%AD%97%E8%BF%99%E7%A7%8D%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E5%88%A4%E6%96%AD%E7%9B%B8%E7%AD%89%E7%9A%84%E6%97%B6%E5%80%99%E4%BC%9A%E8%A2%AB%E8%AE%A4%E4%B8%BA%E6%98%AF%E7%A7%91%E5%AD%A6%E8%AE%A1%E6%95%B0%E6%B3%95%E7%9A%84%E6%95%B0%E5%AD%97%EF%BC%8C%E8%BD%AC%E6%8D%A2%E5%90%8E%E9%83%BD%E6%88%90%E4%B8%BA%E4%BA%860%E7%9A%84%E5%A5%BD%E5%A4%9A%E5%A5%BD%E5%A4%9A%E6%AC%A1%E6%96%B9%EF%BC%8C%E9%83%BD%E6%98%AF0"><span class="toc-number">36.2.</span> <span class="toc-text">（1）0e 纯数字这种格式的字符串在判断相等的时候会被认为是科学计数法的数字，转换后都成为了0的好多好多次方，都是0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%A6%82%E6%9E%9C%E9%A6%96%E5%AD%97%E7%AC%A6%E6%98%AF%E5%AD%97%E6%AF%8D%E7%AE%970"><span class="toc-number">36.3.</span> <span class="toc-text">（2）如果首字符是字母算0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E5%A6%82%E6%9E%9C%E9%A6%96%E5%AD%97%E6%AF%8D%E6%98%AF%E6%95%B0%E5%AD%97%EF%BC%8C%E5%90%8E%E9%9D%A2%E6%9C%89%E5%AD%97%E6%AF%8D%EF%BC%8C%E9%82%A3%E5%B0%B1%E4%BC%9A%E6%88%AA%E6%96%AD"><span class="toc-number">36.4.</span> <span class="toc-text">（3）如果首字母是数字，后面有字母，那就会截断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8F%AF%E8%AE%BE%E7%BD%AEsession"><span class="toc-number">36.5.</span> <span class="toc-text">（1）验证码可设置session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89session-AdminGroupID-1-%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">36.6.</span> <span class="toc-text">（2）session(AdminGroupID&#x3D;&#x3D;1)超级管理员</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-this-isLogin"><span class="toc-number">37.</span> <span class="toc-text">1.$this-&gt;isLogin()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-this-checkPurview"><span class="toc-number">38.</span> <span class="toc-text">2.$this-&gt;checkPurview()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%85%88%E6%89%BE%E5%88%B0%E4%B8%80%E4%B8%AA%E7%99%BB%E5%BD%95%E6%8E%A5%E5%8F%A3%EF%BC%8C%E4%B8%8D%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E6%88%90%E5%8A%9F%EF%BC%8C%E5%8F%AA%E6%98%AF%E8%8E%B7%E5%BE%97%E4%B8%80%E4%B8%AA%E5%B7%B2%E6%9C%89%E7%9A%84session"><span class="toc-number">39.</span> <span class="toc-text">1.先找到一个登录接口，不需要登录成功，只是获得一个已有的session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8verifyCode%E6%8E%A5%E5%8F%A3%E5%85%88%E6%8A%8AAdminID%E5%92%8CAdminName%E6%B3%A8%E5%86%8C%E4%BA%86%EF%BC%8C%E9%87%8C%E9%9D%A2%E7%9A%84%E5%86%85%E5%AE%B9%E5%85%B6%E5%AE%9E%E5%8F%AF%E4%BB%A5%E4%B8%8D%E7%94%A8%E5%85%B3%E6%B3%A8%EF%BC%8C%E5%8F%AA%E8%A6%81%E5%AD%98%E5%9C%A8%E5%B0%B1%E8%A1%8C"><span class="toc-number">40.</span> <span class="toc-text">2.使用verifyCode接口先把AdminID和AdminName注册了，里面的内容其实可以不用关注，只要存在就行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%86%99%E4%B8%80%E4%B8%AA%E5%BE%AA%E7%8E%AF%EF%BC%8C%E4%BD%BF%E7%94%A8verifyCode%E6%8E%A5%E5%8F%A3%E6%B3%A8%E5%86%8CAdminGroupID%EF%BC%8C%E6%AF%8F%E6%AC%A1%E9%83%BD%E4%BC%9A%E5%BE%97%E5%88%B0%E4%B8%80%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84md5-%E5%8A%A0%E5%AF%86%E5%90%8E%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E5%92%8C1%E5%81%9A-%E6%AF%94%E8%BE%83"><span class="toc-number">41.</span> <span class="toc-text">3.写一个循环，使用verifyCode接口注册AdminGroupID，每次都会得到一个随机字符串的md5()加密后的字符串，和1做&#x3D;&#x3D;比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Editthiscookie"><span class="toc-number">42.</span> <span class="toc-text">1.Editthiscookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8Burpsuite%E6%8E%A7%E5%88%B6%E5%9B%9E%E6%98%BE%EF%BC%88%E4%B9%9F%E6%B2%A1%E6%9C%89%E9%95%BF%E6%9C%9F%E6%88%90%E5%8A%9F%EF%BC%89"><span class="toc-number">43.</span> <span class="toc-text">2.使用Burpsuite控制回显（也没有长期成功）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%B6%E4%BB%96%E6%88%91%E8%BF%98%E6%B2%A1%E6%9D%A5%E5%BE%97%E5%8F%8A%E9%AA%8C%E8%AF%81%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="toc-number">44.</span> <span class="toc-text">3.其他我还没来得及验证的思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E4%BA%86%E8%BF%99%E7%A7%8D%E6%96%B9%E5%BC%8F%E4%B9%8B%E5%A4%96%EF%BC%8C%E8%BF%98%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87%E6%95%B0%E7%BB%84%E7%9B%B4%E6%8E%A5%E7%BB%95%E8%BF%87%EF%BC%8C%E5%BD%93%E6%88%91%E4%BB%AC%E4%BC%A0%E5%85%A5%E6%95%B0%E7%BB%84%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E7%BB%8F%E8%BF%87md5-%E6%88%96%E8%80%85sha1-%E7%9A%84%E5%A4%84%E7%90%86%E5%90%8E%E9%83%BD%E4%BC%9A%E5%8F%98%E6%88%90NULL%EF%BC%8C%E8%BF%99%E6%A0%B7%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%8F%98%E6%88%90a%E4%B8%8D%E7%AD%89%E4%BA%8Eb%EF%BC%8C%E4%BD%86%E6%98%AFa%E7%9A%84md5%E7%9A%84%E5%80%BC%EF%BC%88NULL%EF%BC%89-b%E7%9A%84md5%E7%9A%84%E5%80%BC%EF%BC%88NULL%EF%BC%89"><span class="toc-number">45.</span> <span class="toc-text">除了这种方式之外，还可以通过数组直接绕过，当我们传入数组的时候，经过md5()或者sha1()的处理后都会变成NULL，这样就可以变成a不等于b，但是a的md5的值（NULL）&#x3D;b的md5的值（NULL）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9Ckey%E2%80%9D-0"><span class="toc-number">46.</span> <span class="toc-text">{“key”:0}</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9Ckey%E2%80%9D-%E2%80%9C0%E2%80%9D"><span class="toc-number">47.</span> <span class="toc-text">{“key”:“0”}</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%90%E4%BD%BF%E7%94%A8-%E5%9C%BA%E6%99%AF%E3%80%91"><span class="toc-number">48.</span> <span class="toc-text">【使用&#x3D;&#x3D;&#x3D;场景】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882-1%EF%BC%89%E4%BD%BF%E7%94%A8%E6%95%B0%E7%BB%84"><span class="toc-number">49.</span> <span class="toc-text">（2.1）使用数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882-2%EF%BC%89%E5%BC%BA%E5%88%B6string%E8%BD%AC%E6%8D%A2"><span class="toc-number">50.</span> <span class="toc-text">（2.2）强制string转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89"><span class="toc-number">50.1.</span> <span class="toc-text">（2）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9F%E7%B1%BB"><span class="toc-number">51.</span> <span class="toc-text">（2.3）使用原生类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89Error%E7%B1%BB%E4%B8%AD%E6%9C%89-tostring%E6%96%B9%E6%B3%95%EF%BC%8C%E5%BD%93%E7%B1%BB%E8%A2%AB%E5%BD%93%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E6%97%B6%EF%BC%88%E6%AF%94%E5%A6%82md5-%E6%88%96%E8%80%85sha1-%EF%BC%89%EF%BC%8C%E5%B0%B1%E4%BC%9A%E8%B0%83%E7%94%A8%E8%BF%99%E4%B8%AA%E5%87%BD%E6%95%B0"><span class="toc-number">51.1.</span> <span class="toc-text">（1）Error类中有__tostring方法，当类被当成字符串处理时（比如md5()或者sha1()），就会调用这个函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E8%BF%99%E4%B8%AA%E6%AF%94%E8%BE%83%E5%B9%B6%E4%B8%8D%E6%98%AF0e%E8%BF%99%E7%A7%8D%E6%AF%94%E8%BE%83%E6%96%B9%E5%BC%8F%EF%BC%8C%E8%80%8C%E6%98%AF%E6%9C%AC%E8%BA%AB%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%8C%E4%BD%86%E6%98%AF%E7%BB%8F%E8%BF%87-tostring%E6%96%B9%E6%B3%95%E5%90%8E%E5%8F%98%E6%88%90%E4%B8%80%E6%A0%B7%E7%9A%84%EF%BC%8C%E6%89%80%E4%BB%A5%E4%BB%96%E7%9A%84md5-%E5%92%8Csha1-%E4%B8%80%E5%AE%9A%E6%98%AF%E4%B8%80%E6%A0%B7%E7%9A%84"><span class="toc-number">51.2.</span> <span class="toc-text">（2）这个比较并不是0e这种比较方式，而是本身不一样，但是经过__tostring方法后变成一样的，所以他的md5()和sha1()一定是一样的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89-this-syc%E5%92%8C-this-lover%E7%9A%84%E5%80%BC%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%8C%E4%BD%86%E6%98%AF%E7%BB%8F%E8%BF%87MD5-%E5%92%8Csha1-%E5%90%8E%E5%80%BC%E8%A6%81%E4%B8%80%E6%A0%B7"><span class="toc-number">51.3.</span> <span class="toc-text">（1）$this-&gt;syc和$this-&gt;lover的值不一样，但是经过MD5()和sha1()后值要一样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89-this-syc%E4%B8%8D%E8%83%BD%E5%87%BA%E7%8E%B0%E2%80%9D"><span class="toc-number">51.4.</span> <span class="toc-text">（2）$this-&gt;syc不能出现”&lt;?php”、”(“、”)”、”””、”‘“</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E7%94%B1%E4%BA%8E%E4%B8%8D%E8%83%BD%E5%87%BA%E7%8E%B0php%E7%AD%89%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%89%80%E4%BB%A5%E5%8F%AF%E4%BB%A5%E5%8F%96%E5%8F%8D"><span class="toc-number">52.</span> <span class="toc-text">2、由于不能出现php等字符串、所以可以取反</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-%E8%BF%87%E6%BB%A4%E4%BA%86%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E6%88%96%E8%80%85"><span class="toc-number">53.</span> <span class="toc-text">17.过滤了，可以使用或者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-%E6%9D%A1%E4%BB%B6%E7%AB%9E%E4%BA%89"><span class="toc-number">54.</span> <span class="toc-text">17.条件竞争</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-%E6%B2%A1%E6%9C%89%E7%94%A8%E5%88%B0%E5%8F%82%E6%95%B0%E8%BF%87%E6%BB%A4%E6%96%B9%E6%B3%95%E7%9A%84%E5%8F%82%E6%95%B0%E6%8E%A5%E6%94%B6"><span class="toc-number">55.</span> <span class="toc-text">18.没有用到参数过滤方法的参数接收</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%9020%E3%80%91%E9%80%9A%E8%BF%87%E6%BC%8F%E6%B4%9E%E7%82%B9%E6%89%BE%E8%B7%AF%E7%94%B1"><span class="toc-number">56.</span> <span class="toc-text">【20】通过漏洞点找路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5%E6%97%A2%E8%A6%81%E6%98%AF%E9%9D%9E%E6%95%B0%E5%AD%97%EF%BC%8C%E5%8F%88%E8%A6%81-%E6%95%B0%E5%AD%97"><span class="toc-number">57.</span> <span class="toc-text">[21]需要输入既要是非数字，又要&#x3D;&#x3D;数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-%E6%95%B0%E5%AD%97%E5%92%8C%E5%AD%97%E7%AC%A6%E7%9A%84%E6%AF%94%E8%BE%83%EF%BC%882-%E2%80%9C2%E2%80%9D%EF%BC%89"><span class="toc-number">58.</span> <span class="toc-text">[22]数字和字符的比较（2&#x3D;“2”）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-%E6%95%B0%E5%AD%97%E7%9A%84%E8%BF%90%E7%AE%97%EF%BC%88intval-num-2020-intval-num-1-2021%EF%BC%89"><span class="toc-number">59.</span> <span class="toc-text">[23]数字的运算（intval($num) &lt; 2020 &amp;&amp; intval($num + 1) &gt; 2021）</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%881%EF%BC%89intval-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%BD%93%E5%AF%BC%E8%87%B4%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">（1）intval()使用不当导致安全漏洞的分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Discuz-6-x-7-x-%E7%89%88%E6%9C%AC-%E5%89%8D%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.</span> <span class="toc-text">Discuz! 6.x&#x2F;7.x 版本 前台任意代码执行漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%887%EF%BC%89%E5%80%9F%E7%94%A8%E5%8F%8D%E5%B0%84%E6%9D%A5%E5%AE%9E%E7%8E%B0%E5%8D%B1%E9%99%A9%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">（7）借用反射来实现危险函数的调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">4.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP%E5%8F%8D%E5%B0%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">PHP反射的基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%8F%8D%E5%B0%84%E7%B1%BB"><span class="toc-number">6.</span> <span class="toc-text">1、反射类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%8F%8D%E5%B0%84%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">2、反射方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%8F%8D%E5%B0%84%E7%B1%BB%E5%92%8C%E5%8F%8D%E5%B0%84%E6%96%B9%E6%B3%95%E4%B8%AD%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-number">8.</span> <span class="toc-text">3、反射类和反射方法中其他常用的用法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%80%BB%E8%A2%AB%E5%BF%BD%E7%95%A5%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3"><span class="toc-number">9.</span> <span class="toc-text">(8)总被忽略的文件上传接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%889%EF%BC%89%E4%BB%A5%E7%99%BD%E7%9B%92%E8%A7%86%E8%A7%92%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%9C%A8%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91"><span class="toc-number">10.</span> <span class="toc-text">（9）以白盒视角文件上传在黑盒测试中的逻辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E8%A2%AB%E5%BF%BD%E7%95%A5%E7%9A%84key%E5%80%BC%E6%B3%A8%E5%85%A5"><span class="toc-number">11.</span> <span class="toc-text">(11)被忽略的key值注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%8813%EF%BC%89%E4%B8%80%E6%AC%A1%E6%80%A7%E8%BF%87%E6%BB%A4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">12.</span> <span class="toc-text">（13）一次性过滤引发的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E9%80%9A%E8%BF%87%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F%E7%9A%84%E5%BC%95%E5%85%A5%E5%AF%BC%E8%87%B4%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="toc-number">13.</span> <span class="toc-text">(14)通过系统变量的引入导致命令执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%90%E4%BD%BF%E7%94%A8-%E7%9A%84%E5%9C%BA%E6%99%AF%E3%80%91"><span class="toc-number">14.</span> <span class="toc-text">【使用&#x3D;&#x3D;的场景】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9Ckey%E2%80%9D-0"><span class="toc-number">15.</span> <span class="toc-text">{“key”:0}</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9Ckey%E2%80%9D-%E2%80%9C0%E2%80%9D"><span class="toc-number">16.</span> <span class="toc-text">{“key”:“0”}</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%90%E4%BD%BF%E7%94%A8-%E5%9C%BA%E6%99%AF%E3%80%91"><span class="toc-number">17.</span> <span class="toc-text">【使用&#x3D;&#x3D;&#x3D;场景】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882-1%EF%BC%89%E4%BD%BF%E7%94%A8%E6%95%B0%E7%BB%84"><span class="toc-number">18.</span> <span class="toc-text">（2.1）使用数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882-2%EF%BC%89%E5%BC%BA%E5%88%B6string%E8%BD%AC%E6%8D%A2"><span class="toc-number">19.</span> <span class="toc-text">（2.2）强制string转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9F%E7%B1%BB"><span class="toc-number">20.</span> <span class="toc-text">（2.3）使用原生类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E7%94%B1%E4%BA%8E%E4%B8%8D%E8%83%BD%E5%87%BA%E7%8E%B0php%E7%AD%89%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%89%80%E4%BB%A5%E5%8F%AF%E4%BB%A5%E5%8F%96%E5%8F%8D"><span class="toc-number">21.</span> <span class="toc-text">2、由于不能出现php等字符串、所以可以取反</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%9020%E3%80%91%E9%80%9A%E8%BF%87%E6%BC%8F%E6%B4%9E%E7%82%B9%E6%89%BE%E8%B7%AF%E7%94%B1"><span class="toc-number">22.</span> <span class="toc-text">【20】通过漏洞点找路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5%E6%97%A2%E8%A6%81%E6%98%AF%E9%9D%9E%E6%95%B0%E5%AD%97%EF%BC%8C%E5%8F%88%E8%A6%81-%E6%95%B0%E5%AD%97"><span class="toc-number">23.</span> <span class="toc-text">[21]需要输入既要是非数字，又要&#x3D;&#x3D;数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-%E6%95%B0%E5%AD%97%E5%92%8C%E5%AD%97%E7%AC%A6%E7%9A%84%E6%AF%94%E8%BE%83%EF%BC%882-%E2%80%9C2%E2%80%9D%EF%BC%89"><span class="toc-number">24.</span> <span class="toc-text">[22]数字和字符的比较（2&#x3D;“2”）</span></a></li></ol>
                 </div>
             
         
@@ -539,16 +539,35 @@
 <p>WordPress &lt;&#x3D; 2.0.6 wp-trackback.php Zend_Hash_Del_Key_Or_Index &#x2F; sql injection exploit<br>漏洞点的大概位置在这：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_2.e38fa9d380.png" alt="clipboard.png"></p>
 <p>这里面第一个是$_GET[‘tb_id’]的参数分割并赋值，第二个是几个重要的判断点：</p>
-<h2 id="1-if-intval-tb-id"><a href="#1-if-intval-tb-id" class="headerlink" title="1.if ( !intval( $tb_id ) )"></a>1.if ( !intval( $tb_id ) )</h2><h2 id="2-if-empty-title-empty-tb-url-empty-blog-name"><a href="#2-if-empty-title-empty-tb-url-empty-blog-name" class="headerlink" title="2.if (empty($title) &amp;&amp; empty($tb_url) &amp;&amp; empty($blog_name))"></a>2.if (empty($title) &amp;&amp; empty($tb_url) &amp;&amp; empty($blog_name))</h2><h2 id="3-if-empty-tb-url-empty-title-empty-tb-url"><a href="#3-if-empty-tb-url-empty-title-empty-tb-url" class="headerlink" title="3.if ( !empty($tb_url) &amp;&amp; !empty($title) &amp;&amp; !empty($tb_url) )"></a>3.if ( !empty($tb_url) &amp;&amp; !empty($title) &amp;&amp; !empty($tb_url) )</h2><p>intval()就可以用上面的方式</p>
+<ul>
+<li><p>1.if ( !intval( $tb_id ) )</p>
+</li>
+<li><p>2.if (empty($title) &amp;&amp; empty($tb_url) &amp;&amp; empty($blog_name))</p>
+</li>
+<li><p>3.if ( !empty($tb_url) &amp;&amp; !empty($title) &amp;&amp; !empty($tb_url) )</p>
+</li>
+</ul>
+<p>intval()就可以用上面的方式</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_3.c4a367cea8.png" alt="clipboard.png"></p>
 <p>详细参考：80vul<br>_<em>（2）preg_match(<em>all)的变量初始化问题</em></em><br>大佬在这里提到了一个老的漏洞，多个条件造成了这个漏洞，算是一种逻辑漏洞，Discuz!&lt;5.50 preg_match()的变量$onlineipmatches未初始化漏洞，漏洞在&#x2F;include&#x2F;common.inc.php</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_4.b771beeb0a.png" alt="clipboard.png"></p>
 <p>这个漏洞的存在主要是有以下几个原因：</p>
-<h2 id="1-extract-函数直接包裹了所有-GET的参数，所以可以通过传入多余的键值对赋值"><a href="#1-extract-函数直接包裹了所有-GET的参数，所以可以通过传入多余的键值对赋值" class="headerlink" title="1.extract()函数直接包裹了所有$_GET的参数，所以可以通过传入多余的键值对赋值"></a>1.extract()函数直接包裹了所有$_GET的参数，所以可以通过传入多余的键值对赋值</h2><h2 id="2-getenv-函数在IIS下会失效"><a href="#2-getenv-函数在IIS下会失效" class="headerlink" title="2.getenv()函数在IIS下会失效"></a>2.getenv()函数在IIS下会失效</h2><p>getenv(“REMOTE_ADDR”)函数在 apache下能正常获取ip地址，而在iis中，一点作用都没。</p>
+<ul>
+<li><p>1.extract()函数直接包裹了所有$_GET的参数，所以可以通过传入多余的键值对赋值</p>
+</li>
+<li><p>2.getenv()函数在IIS下会失效</p>
+</li>
+</ul>
+<p>getenv(“REMOTE_ADDR”)函数在 apache下能正常获取ip地址，而在iis中，一点作用都没。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$_SERVER</span>[<span class="string">&#x27;REMOTE_ADDR&#x27;</span>]函数，既可在apache中成功获取 访客的ip地址，在iis下也同样有效。</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-SERVER-‘REMOTE-ADDR’-是可控的"><a href="#3-SERVER-‘REMOTE-ADDR’-是可控的" class="headerlink" title="3.$_SERVER[‘REMOTE_ADDR’]是可控的"></a>3.$_SERVER[‘REMOTE_ADDR’]是可控的</h2><p>php中获取访客(客户端)的ip地址，$_SERVER[‘REMOTE_ADDR’]，是可控的</p>
-<p>4.preg_match(“&#x2F;[\d.]{7,15}&#x2F;“, $onlineip, $onlineipmatches);的第三个参数未被初始化，使用一个Demo讲解一下，这样就说明$onlineip可控了，所过这个参数被危险函数所使用就造成了漏洞</p>
+<ul>
+<li>3.$_SERVER[‘REMOTE_ADDR’]是可控的</li>
+</ul>
+<p>php中获取访客(客户端)的ip地址，$_SERVER[‘REMOTE_ADDR’]，是可控的</p>
+<ul>
+<li>4.preg_match(“&#x2F;[\d.]{7,15}&#x2F;“, $onlineip, $onlineipmatches);的第三个参数未被初始化，使用一个Demo讲解一下，这样就说明$onlineip可控了，所过这个参数被危险函数所使用就造成了漏洞</li>
+</ul>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_5.63cefe9859.png" alt="clipboard.png"></p>
 <p><strong>（3）preg_replace() &#x2F;e修饰符 滥用</strong><br>这应该是一些自动化代码审计工具里面的一条规则：搜索preg_replace()，且括号里面带有 &#x2F;e ，第二个参数可控（可以是$_GET或者$_POST等），就提示：可能存在代码注入漏洞。</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_6.4728040d43.png" alt="clipboard.png"></p>
@@ -556,11 +575,17 @@
 <p>举个例子：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_7.b07701ee8a.png" alt="clipboard.png"></p>
 <h2 id="Discuz-6-x-7-x-版本-前台任意代码执行漏洞"><a href="#Discuz-6-x-7-x-版本-前台任意代码执行漏洞" class="headerlink" title="Discuz! 6.x&#x2F;7.x 版本 前台任意代码执行漏洞"></a>Discuz! 6.x&#x2F;7.x 版本 前台任意代码执行漏洞</h2><p>有一些前台就可以RCE的漏洞的漏洞点出现在include目录下的某一个文件，一般都会被index.php include进去，不过都要配上一些条件，比如这个漏洞的触发条件就是：</p>
-<h2 id="1-php-ini配置项中request-order为GP"><a href="#1-php-ini配置项中request-order为GP" class="headerlink" title="1.php.ini配置项中request_order为GP"></a>1.php.ini配置项中request_order为GP</h2><p>关于 request_order 这个配置选项，是php的5.3.x版本中新增加的。</p>
+<ul>
+<li>1.php.ini配置项中request_order为GP</li>
+</ul>
+<p>关于 request_order 这个配置选项，是php的5.3.x版本中新增加的。</p>
 <p>关于他的不安全性可以从以下看出：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  <span class="variable">$_REQUEST</span>这个超全局变量的值受php.ini中request_order的影响，在最新的php5.<span class="number">3</span>.x系列中，request_order默认值为GP，也就是说默认配置下<span class="variable">$_REQUEST</span>只包含<span class="variable">$_GET</span>和<span class="variable">$_POST</span>而不包括<span class="variable">$_COOKIE</span>。通过 COOKIE就可以提交GLOBALS变量。</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-preg-replace-函数第一个参数可控，第二个参数也可控"><a href="#2-preg-replace-函数第一个参数可控，第二个参数也可控" class="headerlink" title="2.preg_replace()函数第一个参数可控，第二个参数也可控"></a>2.preg_replace()函数第一个参数可控，第二个参数也可控</h2><p>可控的情况下，我们可以第一个参数传入&#x2F;e，保证可以执行第二个参数传入的PHP代码。</p>
+<ul>
+<li>2.preg_replace()函数第一个参数可控，第二个参数也可控</li>
+</ul>
+<p>可控的情况下，我们可以第一个参数传入&#x2F;e，保证可以执行第二个参数传入的PHP代码。</p>
 <p>漏洞点在&#x2F;include&#x2F;discuzcode.func.php的discuzcode()方法中</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_8.2af4c176d3.png" alt="clipboard.png"></p>
 <p>这种文件一般都是基础文件，会被其他的功能文件include进去的，所以全局搜索discuzcode()方法，在viewthread.php的viewthread_procpost()中使用，也include了discuzcode.func.php文件</p>
@@ -643,7 +668,13 @@
 <p>Memcached也存在一个$this-&gt;handle，我们将其设置为File类（thinkphp&#x2F;library&#x2F;think&#x2F;cache&#x2F;driver&#x2F;File.php）从而进入到File-&gt;set方法</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_38.15510f6c5b.png" alt="clipboard.png"></p>
 <p>这里面有两个关注点：</p>
-<h2 id="1-一个是写入文件的位置"><a href="#1-一个是写入文件的位置" class="headerlink" title="1.一个是写入文件的位置"></a>1.一个是写入文件的位置</h2><h2 id="2-另一个是写入文件的内容"><a href="#2-另一个是写入文件的内容" class="headerlink" title="2.另一个是写入文件的内容"></a>2.另一个是写入文件的内容</h2><p>先说一下$filename，$filename的值是$this-&gt;getCacheKey($name)，其中$name就是set方法中$this-&gt;config[‘session_name’]和$sessID的拼接（这里面可以将$this-&gt;config[‘session_name’]设置为空，但是这个$sessID应该不是固定的，想办法固定了就好了），继续跟进$this-&gt;getCacheKey()【假设我们这边的$sessID是XXXXXXXXX】</p>
+<ul>
+<li><p>1.一个是写入文件的位置</p>
+</li>
+<li><p>2.另一个是写入文件的内容</p>
+</li>
+</ul>
+<p>先说一下$filename，$filename的值是$this-&gt;getCacheKey($name)，其中$name就是set方法中$this-&gt;config[‘session_name’]和$sessID的拼接（这里面可以将$this-&gt;config[‘session_name’]设置为空，但是这个$sessID应该不是固定的，想办法固定了就好了），继续跟进$this-&gt;getCacheKey()【假设我们这边的$sessID是XXXXXXXXX】</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_39.22ccd1b41e.png" alt="clipboard.png"></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$filename</span> 的值 是通过<span class="variable language_">$this</span>-&gt;options[<span class="string">&#x27;path&#x27;</span>]（可控）+<span class="variable">$name</span>（取前面的<span class="variable language_">$this</span>-&gt;config[<span class="string">&#x27;session_name&#x27;</span>]和<span class="variable">$sessID</span>拼接后的字符串md5）+.php作为最后的字符串【】；<span class="variable">$data</span> 这里不可控，所以没办法用，继续往下走到<span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">setTagItem</span>(<span class="variable">$filename</span>)</span><br></pre></td></tr></table></figure>
 
@@ -661,7 +692,15 @@
 <p>Linux下<br>php会把文件内容进行rot13编码，然后写入123.php 文件。这样，原本的exit() 就会被rot13编码，变成rkvg() ,从而实现了绕过。</p>
 <p>Windows下<br>造成windows 不能写文件的原因是含有 ‘?‘和’&lt;&gt;’ 关键字。</p>
 <p><strong>（6）在file_put_contents()中使用换行符绕过传入内容里面的&#x2F;&#x2F;注释符</strong><br>其中有一个ThinkPHP 5.0.x 反序列化漏洞就是用了这种方法<br>版本：ThinkPHP 5.0.10<br>这种框架类的漏洞确实还是需要一个触发点，两个前提：</p>
-<h2 id="1-路由可达"><a href="#1-路由可达" class="headerlink" title="1.路由可达"></a>1.路由可达</h2><h2 id="2-使用了Cache-set-，且第一个参数固定或者可控，第二个值可控"><a href="#2-使用了Cache-set-，且第一个参数固定或者可控，第二个值可控" class="headerlink" title="2.使用了Cache::set()，且第一个参数固定或者可控，第二个值可控"></a>2.使用了Cache::set()，且第一个参数固定或者可控，第二个值可控</h2><h2 id="3-再利用版本"><a href="#3-再利用版本" class="headerlink" title="3.再利用版本"></a>3.再利用版本</h2><p>Demo如下：</p>
+<ul>
+<li><p>1.路由可达</p>
+</li>
+<li><p>2.使用了Cache::set()，且第一个参数固定或者可控，第二个值可控</p>
+</li>
+<li><p>3.再利用版本</p>
+</li>
+</ul>
+<p>Demo如下：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_45.4ddfd03fd7.png" alt="clipboard.png"></p>
 <p>漏洞入口点在 thinkphp&#x2F;library&#x2F;think&#x2F;Cache.php 中的set()方法中</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_46.8b625877ec.png" alt="clipboard.png"></p>
@@ -679,7 +718,8 @@
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_52.7a4ef05020.png" alt="clipboard.png"></p>
 <p>但是由于没有任何过滤，导致当我们输入syst1m%0D%0A@eval($<em>GET[</em>]);&#x2F;&#x2F;的时候，%0D（回车符）%0A（换行符）会将@eval($<em>GET[</em>]);&#x2F;&#x2F;写入在下一行，&#x2F;&#x2F;注释只能负责一行的注释，所以注释失效，@eval($<em>GET[</em>]);&#x2F;&#x2F;的&#x2F;&#x2F;有可以将后面有可能影响的字符注释掉，保证shell可以执行，测试一下</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_53.68e3ea08b0.png" alt="clipboard.png"></p>
-<h2 id="（7）借用反射来实现危险函数的调用"><a href="#（7）借用反射来实现危险函数的调用" class="headerlink" title="（7）借用反射来实现危险函数的调用"></a>（7）借用反射来实现危险函数的调用</h2><h2 id="Reflection-反射-是Java程序开发语言的特征之一，它允许运行中的Java程序对自身进行检查，或者说“自审”，并能直接操作程序的内部属性。"><a href="#Reflection-反射-是Java程序开发语言的特征之一，它允许运行中的Java程序对自身进行检查，或者说“自审”，并能直接操作程序的内部属性。" class="headerlink" title="Reflection(反射)是Java程序开发语言的特征之一，它允许运行中的Java程序对自身进行检查，或者说“自审”，并能直接操作程序的内部属性。"></a>Reflection(反射)是Java程序开发语言的特征之一，它允许运行中的Java程序对自身进行检查，或者说“自审”，并能直接操作程序的内部属性。</h2><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>反射是指在PHP运行状态中，扩展分析PHP程序，导出或提出关于类、方法、属性、参数等的详细信息，包括注释。这种动态获取信息以及动态调用对象方法的功能称为反射API。</p>
+<h2 id="（7）借用反射来实现危险函数的调用"><a href="#（7）借用反射来实现危险函数的调用" class="headerlink" title="（7）借用反射来实现危险函数的调用"></a>（7）借用反射来实现危险函数的调用</h2><p>Reflection(反射)是Java程序开发语言的特征之一，它允许运行中的Java程序对自身进行检查，或者说“自审”，并能直接操作程序的内部属性。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>反射是指在PHP运行状态中，扩展分析PHP程序，导出或提出关于类、方法、属性、参数等的详细信息，包括注释。这种动态获取信息以及动态调用对象方法的功能称为反射API。</p>
 <h2 id="PHP反射的基本语法"><a href="#PHP反射的基本语法" class="headerlink" title="PHP反射的基本语法"></a>PHP反射的基本语法</h2><p>实现反射的方法有很多，可以通过实例化一个专门控制类的ReflectionClass类来实现反射，也可以在已有类实例的情况下，通过直接实例化ReflectionMethod类来执行反射方法，原理如图：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_54.648c419406.png" alt="906181005541.png"></p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_55.90b8f85ecc.png" alt="906181005542.png"></p>
@@ -739,20 +779,30 @@
 <p>我以前在文件上传的时候主要关注几个关键要素：文件是否重命名？是否强制后缀名或者黑&#x2F;白名单？上传成功是否有回显？</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_69.53559d4851.png" alt="clipboard.png"></p>
 <p>通过将这些情况聚类我们总结出以下几个点：</p>
-<h2 id="1-不过滤文件后缀名"><a href="#1-不过滤文件后缀名" class="headerlink" title="1.不过滤文件后缀名"></a>1.不过滤文件后缀名</h2><p>这种是最简单的，一般在自研的业务系统中最常见的，在真实攻击中登录到系统后第一件事就是找所有的上传接口，一个一个尝试，如果没有过滤的话就一下搞定服务器，如下</p>
+<ul>
+<li>1.不过滤文件后缀名</li>
+</ul>
+<p>这种是最简单的，一般在自研的业务系统中最常见的，在真实攻击中登录到系统后第一件事就是找所有的上传接口，一个一个尝试，如果没有过滤的话就一下搞定服务器，如下</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_70.44692dfea8.png" alt="clipboard.png"></p>
-<h2 id="2-文件后缀名白名单过滤"><a href="#2-文件后缀名白名单过滤" class="headerlink" title="2.文件后缀名白名单过滤"></a>2.文件后缀名白名单过滤</h2><p>白名单校验应该是最保险的方式，其实这里面可以细分成两种情况<br>第一种情况就是只有一个上传参数，直接检查后缀名，就算你使用截断的方式（比如shell.php%001.jpg），发现$_FILES[‘uploaded’][‘name’]变量在接收filename的值时，自动将\0后的字符串进行的截断，此处取后缀仍然为.php，因此不能通过修改filename的值来进行00截断，所以最终没有绕过jpg和png的对比，上传失败。</p>
+<ul>
+<li>2.文件后缀名白名单过滤</li>
+</ul>
+<p>白名单校验应该是最保险的方式，其实这里面可以细分成两种情况<br>第一种情况就是只有一个上传参数，直接检查后缀名，就算你使用截断的方式（比如shell.php%001.jpg），发现$_FILES[‘uploaded’][‘name’]变量在接收filename的值时，自动将\0后的字符串进行的截断，此处取后缀仍然为.php，因此不能通过修改filename的值来进行00截断，所以最终没有绕过jpg和png的对比，上传失败。</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_71.ba8ee2bd02.png" alt="clipboard.png"></p>
 <p>这个也是绕不过的</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_72.4e11339c08.png" alt="clipboard.png"></p>
 <p>第二种情况就是前面带有一个可控的参数+强制后缀名，这种如果在PHP&lt;&#x3D;5.3的时候就可以使用%00阶段的方式，比如下面这个就可以通过可控的upload参数后面后加&#x2F;1.php%00，重放后返回路径$img_path值为<br>string(34) “upload&#x2F;1.php%00&#x2F;95820201101143031.png”，阶段后服务器上的文件名为upload&#x2F;1.php，上传成功</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_73.be304bc434.png" alt="clipboard.png"></p>
 <p>因此可以总结出，除了$_FILES[‘upload_file’][‘name’]这种变量，其他变量都会将字符串原封不动进行拼接，形成字符串变量中存在\0字符，一旦这个字符串被操作系统用作文件的命名，就会产生00截断的情况。</p>
-<h2 id="3-文件后缀名黑名单过滤"><a href="#3-文件后缀名黑名单过滤" class="headerlink" title="3.文件后缀名黑名单过滤"></a>3.文件后缀名黑名单过滤</h2><p>黑名单一般是不太建议的，因为PHP的配置比较灵活，除了PHP3、php4、php5、phtml、pht等后缀名都可能被解析之外，还有自定义的一些（自定义文本文件格式也能运行php程序。）</p>
+<ul>
+<li>3.文件后缀名黑名单过滤</li>
+</ul>
+<p>黑名单一般是不太建议的，因为PHP的配置比较灵活，除了PHP3、php4、php5、phtml、pht等后缀名都可能被解析之外，还有自定义的一些（自定义文本文件格式也能运行php程序。）</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_74.7f5699f4d6.png" alt="clipboard.png"></p>
 <p>所以这种黑名单是不保险的（weblogic的补丁好像一直都是黑名单补丁..就导致一直在缝缝补补）</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_75.b06ac6e4d4.png" alt="clipboard.png"></p>
-<h2 id="PS：在实战中经常遇到一个场景，上传文件没有回显路径，通常可以找到其他带有图片或者上传文件的位置抓包或者F12，看一下这个文件所在的路径（一般再相对路径的uplaod目录下），然后再尝试把上传的文件名拼接在后面，然后访问。"><a href="#PS：在实战中经常遇到一个场景，上传文件没有回显路径，通常可以找到其他带有图片或者上传文件的位置抓包或者F12，看一下这个文件所在的路径（一般再相对路径的uplaod目录下），然后再尝试把上传的文件名拼接在后面，然后访问。" class="headerlink" title="PS：在实战中经常遇到一个场景，上传文件没有回显路径，通常可以找到其他带有图片或者上传文件的位置抓包或者F12，看一下这个文件所在的路径（一般再相对路径的uplaod目录下），然后再尝试把上传的文件名拼接在后面，然后访问。"></a>PS：在实战中经常遇到一个场景，上传文件没有回显路径，通常可以找到其他带有图片或者上传文件的位置抓包或者F12，看一下这个文件所在的路径（一般再相对路径的uplaod目录下），然后再尝试把上传的文件名拼接在后面，然后访问。</h2><p><strong>(10)使用魔法函数</strong>get()满足遍历数组的条件__<br>发现了漏洞点再构造payload的时候经常会遇到前面有奇奇怪怪的判断条件，这个时候就会遇到比如正则怎么绕过，缺参数或者参数无法满足需求等各种情况，比如在Laravel5.7反序列化RCE漏洞中就使用魔法函数__get()满足遍历数组的条件，这个漏洞挖的nb，我从正面流程演示一下：</p>
+<p><strong>PS：在实战中经常遇到一个场景，上传文件没有回显路径，通常可以找到其他带有图片或者上传文件的位置抓包或者F12，看一下这个文件所在的路径（一般再相对路径的uplaod目录下），然后再尝试把上传的文件名拼接在后面，然后访问。</strong></p>
+<p><strong>(10)使用魔法函数</strong>get()满足遍历数组的条件__<br>发现了漏洞点再构造payload的时候经常会遇到前面有奇奇怪怪的判断条件，这个时候就会遇到比如正则怎么绕过，缺参数或者参数无法满足需求等各种情况，比如在Laravel5.7反序列化RCE漏洞中就使用魔法函数__get()满足遍历数组的条件，这个漏洞挖的nb，我从正面流程演示一下：</p>
 <p>Demo如下：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_76.e5a67915a3.png" alt="clipboard.png"></p>
 <p>整个流程是：</p>
@@ -801,7 +851,15 @@
 <p>这里用某未公开的漏洞为例：易通企业网站系统image_admin.php的deleteimg_action方法存在任意文件删除漏洞<br>漏洞点的位置在于&#x2F;lib&#x2F;admin&#x2F;image_admin.php的deleteimg_action()</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_94.abc9c383d5.png" alt="clipboard.png"></p>
 <p>这里面出现了几个条件才能造成漏洞：</p>
-<h2 id="1-路由可达-1"><a href="#1-路由可达-1" class="headerlink" title="1.路由可达"></a>1.路由可达</h2><h2 id="2-img可控且值所对应的文件存在"><a href="#2-img可控且值所对应的文件存在" class="headerlink" title="2.$img可控且值所对应的文件存在"></a>2.$img可控且值所对应的文件存在</h2><h2 id="3-dir参数和-imgname要存在"><a href="#3-dir参数和-imgname要存在" class="headerlink" title="3.$dir参数和$imgname要存在"></a>3.$dir参数和$imgname要存在</h2><p>&#x2F;passwd$img的值是几个参数拼接的，重点关注文件的最后是什么，当到最后一位是可控的，我们可以用..&#x2F;..&#x2F;..&#x2F;etc&#x2F;passwd的方式找到我们将要删除的文件（还有一种情况就是强行重命名或者在后面强行加后缀，后面在说）<br>但是这个CMS是封装了一个获取参数的方法front::get()，针对所有传入的参数都是做了过滤的，我们跟进函数看一下</p>
+<ul>
+<li><p>1.路由可达</p>
+</li>
+<li><p>2.$img可控且值所对应的文件存在</p>
+</li>
+<li><p>3.$dir参数和$imgname要存在</p>
+</li>
+</ul>
+<p>&#x2F;passwd$img的值是几个参数拼接的，重点关注文件的最后是什么，当到最后一位是可控的，我们可以用..&#x2F;..&#x2F;..&#x2F;etc&#x2F;passwd的方式找到我们将要删除的文件（还有一种情况就是强行重命名或者在后面强行加后缀，后面在说）<br>但是这个CMS是封装了一个获取参数的方法front::get()，针对所有传入的参数都是做了过滤的，我们跟进函数看一下</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_95.d347aa8dee.png" alt="clipboard.png"></p>
 <p>这里面self::$get[$var])就是在类初始化的时候就已经获取好的，直接看一下front类的__construct()</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_96.2823af04fe.png" alt="clipboard.png"></p>
@@ -845,7 +903,10 @@
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_113.528f71ffeb.png" alt="clipboard.png"></p>
 <p>效果如下：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_114.d66038468d.png" alt="clipboard.png"></p>
-<h2 id="16-和-号导致的安全漏洞"><a href="#16-和-号导致的安全漏洞" class="headerlink" title="16.&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;号导致的安全漏洞"></a>16.&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;号导致的安全漏洞</h2><h2 id="【使用-的场景】"><a href="#【使用-的场景】" class="headerlink" title="【使用&#x3D;&#x3D;的场景】"></a>【使用&#x3D;&#x3D;的场景】</h2><h3 id="（1）-是松散比较，只比较值，不比较数据类型。"><a href="#（1）-是松散比较，只比较值，不比较数据类型。" class="headerlink" title="（1）&#x3D;&#x3D;是松散比较，只比较值，不比较数据类型。"></a>（1）&#x3D;&#x3D;是松散比较，只比较值，不比较数据类型。</h3><p>&#x3D;&#x3D;比较时，会先把字符串类型转化成相同，再进行比较，比如说字符到数字，非bool类型到bool类型。一个字符串和数字比较时，会把字符串转化成数字再比较。</p>
+<ul>
+<li>16.&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;号导致的安全漏洞</li>
+</ul>
+<h2 id="【使用-的场景】"><a href="#【使用-的场景】" class="headerlink" title="【使用&#x3D;&#x3D;的场景】"></a>【使用&#x3D;&#x3D;的场景】</h2><h3 id="（1）-是松散比较，只比较值，不比较数据类型。"><a href="#（1）-是松散比较，只比较值，不比较数据类型。" class="headerlink" title="（1）&#x3D;&#x3D;是松散比较，只比较值，不比较数据类型。"></a>（1）&#x3D;&#x3D;是松散比较，只比较值，不比较数据类型。</h3><p>&#x3D;&#x3D;比较时，会先把字符串类型转化成相同，再进行比较，比如说字符到数字，非bool类型到bool类型。一个字符串和数字比较时，会把字符串转化成数字再比较。</p>
 <p>PHP转换规则是：若字符串以数字开头，则以开头字母为转换结果，若无则输出0。当有一个对比参数是整数的时候，会把另外一个参数强制转换为整数。</p>
 <p>参考链接：：<a target="_blank" rel="noopener" href="http://php.net/manual/zh/types.comparisons.php">http://php.net/manual/zh/types.comparisons.php</a></p>
 <hr>
@@ -853,11 +914,50 @@
 <p>比如：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_115.abc28ce5f6.png" alt="clipboard.png"></p>
 <p>上面测试了几种情况，可以证明前面提到的原则是对的，在常出现的CTF里面也是利用这个小技巧（比如CG平台的md5 collision），有一些字符串本身是不一样的，但是经过md5()或者sha1()加密后就变成0eXXXXXXXX，这样当经过&#x3D;&#x3D;比较的时候，就实现了通过。</p>
-<p>（1.1）md5，sha1相关的<br>如下题：</p>
+<h3 id="（1-1）md5，sha1相关的"><a href="#（1-1）md5，sha1相关的" class="headerlink" title="（1.1）md5，sha1相关的"></a>（1.1）md5，sha1相关的</h3><p>如下题：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_116.95622a1df7.png" alt="clipboard.png"></p>
 <p>常见的字符串不相等但是md5()后都以0e开头<br>原始字符串<br>md5后的值<br>240610708<br>0e462097431906509019562988736854</p>
-<p>QNKCDZO</p>
-<p>0e830400451993494058024219903391<br>s878926199a<br>0e545993274517709034328855841020<br>s155964671a<br>0e342768416822451524974117254469<br>s214587387a<br>0e848240448830537924465865611904<br>s878926199a<br>0e545993274517709034328855841020<br>s1091221200a<br>0e940624217856561557816327384675<br>s1885207154a<br>0e509367213418206700842008763514<br>s1502113478a<br>0e861580163291561247404381396064<br>常见的字符串不相等但是sha1()后都以0e开头<br>原始字符串<br>sha1后的值</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>QNKCDZO</td>
+<td>0e830400451993494058024219903391</td>
+</tr>
+<tr>
+<td>s878926199a</td>
+<td>0e545993274517709034328855841020</td>
+</tr>
+<tr>
+<td>s155964671a</td>
+<td>0e342768416822451524974117254469</td>
+</tr>
+<tr>
+<td>s214587387a</td>
+<td>0e848240448830537924465865611904</td>
+</tr>
+<tr>
+<td>s878926199a</td>
+<td>0e545993274517709034328855841020</td>
+</tr>
+<tr>
+<td>s1091221200a</td>
+<td>0e940624217856561557816327384675</td>
+</tr>
+<tr>
+<td>s1885207154a</td>
+<td>0e509367213418206700842008763514</td>
+</tr>
+<tr>
+<td>s1502113478a</td>
+<td>0e861580163291561247404381396064</td>
+</tr>
+</tbody></table>
+<p>常见的字符串不相等但是sha1()后都以0e开头<br>原始字符串<br>sha1后的值</p>
 <p>aaroZmOk</p>
 <p>0e66507019969427134894567494305185566735<br>aaK1STfY<br>0e76658526655756207688271159624026011393<br>aaO8zKZF<br>0e89257456677279068558073954252716165668<br>aa3OFF9m<br>0e36977786278517984959260394024281014729<br>这里面也有一个某大佬在奇安信攻防社区发的例子：友点CMS后台登录绕过漏洞<br>这个漏洞有两个关键的点：</p>
 <h3 id="（1）验证码可设置session"><a href="#（1）验证码可设置session" class="headerlink" title="（1）验证码可设置session"></a>（1）验证码可设置session</h3><h3 id="（2）session-AdminGroupID-1-超级管理员"><a href="#（2）session-AdminGroupID-1-超级管理员" class="headerlink" title="（2）session(AdminGroupID&#x3D;&#x3D;1)超级管理员"></a>（2）session(AdminGroupID&#x3D;&#x3D;1)超级管理员</h3><p>先看后台判定权限的逻辑</p>
@@ -866,7 +966,13 @@
 <p>这里面没有明显的和校验权限相关的，但是extends AdminBaseAction类，查看AdminBaseAction类，它里面有一个_initialize()，是在任何方法执行之前，都要执行的，当然也包括_ _构造构造函数。</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_118.5169e2efed.png" alt="clipboard.png"></p>
 <p>这里面有两个关键的判断条件：</p>
-<h2 id="1-this-isLogin"><a href="#1-this-isLogin" class="headerlink" title="1.$this-&gt;isLogin()"></a>1.$this-&gt;isLogin()</h2><h2 id="2-this-checkPurview"><a href="#2-this-checkPurview" class="headerlink" title="2.$this-&gt;checkPurview()"></a>2.$this-&gt;checkPurview()</h2><p>先跟进$this-&gt;isLogin()</p>
+<ul>
+<li><p>1.$this-&gt;isLogin()</p>
+</li>
+<li><p>2.$this-&gt;checkPurview()</p>
+</li>
+</ul>
+<p>先跟进$this-&gt;isLogin()</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_119.7d8afcbfca.png" alt="clipboard.png"></p>
 <p>当session里面存在AdminID和AdminName就可以绕过这个判断</p>
 <p>再看一下$this-&gt;checkPurview()</p>
@@ -880,20 +986,39 @@
 <p>这里面$verifyName是GET获取的，说明我们前面提到的Session里面的AdminID，AdminName，AdminGroupID都可以注册，只是里面的值是随机字符串的md5()，由于是&#x3D;&#x3D;，我们可以测试一下是否可以通过一个随机字符串的md5()加密后&#x3D;&#x3D;1（结果如下图所示）</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_123.d3706275a4.png" alt="clipboard.png"></p>
 <p>发现可行的时候就看一下大佬攻击的思路了：</p>
-<h2 id="1-先找到一个登录接口，不需要登录成功，只是获得一个已有的session"><a href="#1-先找到一个登录接口，不需要登录成功，只是获得一个已有的session" class="headerlink" title="1.先找到一个登录接口，不需要登录成功，只是获得一个已有的session"></a>1.先找到一个登录接口，不需要登录成功，只是获得一个已有的session</h2><h2 id="2-使用verifyCode接口先把AdminID和AdminName注册了，里面的内容其实可以不用关注，只要存在就行"><a href="#2-使用verifyCode接口先把AdminID和AdminName注册了，里面的内容其实可以不用关注，只要存在就行" class="headerlink" title="2.使用verifyCode接口先把AdminID和AdminName注册了，里面的内容其实可以不用关注，只要存在就行"></a>2.使用verifyCode接口先把AdminID和AdminName注册了，里面的内容其实可以不用关注，只要存在就行</h2><h2 id="3-写一个循环，使用verifyCode接口注册AdminGroupID，每次都会得到一个随机字符串的md5-加密后的字符串，和1做-比较"><a href="#3-写一个循环，使用verifyCode接口注册AdminGroupID，每次都会得到一个随机字符串的md5-加密后的字符串，和1做-比较" class="headerlink" title="3.写一个循环，使用verifyCode接口注册AdminGroupID，每次都会得到一个随机字符串的md5()加密后的字符串，和1做&#x3D;&#x3D;比较"></a>3.写一个循环，使用verifyCode接口注册AdminGroupID，每次都会得到一个随机字符串的md5()加密后的字符串，和1做&#x3D;&#x3D;比较</h2><p>4.通过一个登录后才能访问的接口（比如admin index的后台页面）做退出循环的条件，当随机字符串的md5()加密后的字符串&#x3D;&#x3D;1，返回了admin权限，再访问index后台页面的接口就会返回200(而不是302)，这样我们再输出Cookie里面的session就可以绕过登录了</p>
+<ul>
+<li><p>1.先找到一个登录接口，不需要登录成功，只是获得一个已有的session</p>
+</li>
+<li><p>2.使用verifyCode接口先把AdminID和AdminName注册了，里面的内容其实可以不用关注，只要存在就行</p>
+</li>
+<li><p>3.写一个循环，使用verifyCode接口注册AdminGroupID，每次都会得到一个随机字符串的md5()加密后的字符串，和1做&#x3D;&#x3D;比较</p>
+</li>
+<li><p>4.通过一个登录后才能访问的接口（比如admin index的后台页面）做退出循环的条件，当随机字符串的md5()加密后的字符串&#x3D;&#x3D;1，返回了admin权限，再访问index后台页面的接口就会返回200(而不是302)，这样我们再输出Cookie里面的session就可以绕过登录了</p>
+</li>
+</ul>
 <p>脚本跑出的结果如下：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_124.3d76b46291.png" alt="clipboard.png"></p>
 <p>有了Cookie里面的管理员权限的session，我们就可以登录了，这里面还有一个问题，我用burp的时候发现我截断改了以后再访问发现cookie里面的session又变回去了，所以我请教了一下，大概有以下几种方法：</p>
 <p>浏览器插件类（强烈推荐）</p>
-<h2 id="1-Editthiscookie"><a href="#1-Editthiscookie" class="headerlink" title="1.Editthiscookie"></a>1.Editthiscookie</h2><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_125.c5658a6ae6.png" alt="clipboard.png"></p>
-<h2 id="2-使用Burpsuite控制回显（也没有长期成功）"><a href="#2-使用Burpsuite控制回显（也没有长期成功）" class="headerlink" title="2.使用Burpsuite控制回显（也没有长期成功）"></a>2.使用Burpsuite控制回显（也没有长期成功）</h2><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_126.1fbd0918a6.png" alt="clipboard.png"></p>
-<h2 id="3-其他我还没来得及验证的思路"><a href="#3-其他我还没来得及验证的思路" class="headerlink" title="3.其他我还没来得及验证的思路"></a>3.其他我还没来得及验证的思路</h2><p>ModHeader插件<br>chrome插件：Gnaw Cookie  火狐插件：firebug<br>Burp Proxy选项卡里的options下的match and replac</p>
+<ul>
+<li>1.Editthiscookie</li>
+</ul>
+<p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_125.c5658a6ae6.png" alt="clipboard.png"></p>
+<ul>
+<li>2.使用Burpsuite控制回显（也没有长期成功）</li>
+</ul>
+<p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_126.1fbd0918a6.png" alt="clipboard.png"></p>
+<ul>
+<li>3.其他我还没来得及验证的思路</li>
+</ul>
+<p>ModHeader插件<br>chrome插件：Gnaw Cookie  火狐插件：firebug<br>Burp Proxy选项卡里的options下的match and replac</p>
 <p>注：这个漏洞在9.3.0的修复方式也很粗暴，在App&#x2F;Lib&#x2F;Action&#x2F;BaseAction.class.php的verifycode()加了一个判定条件，verify参数的值只能传入commentcode和verify，</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_127.29e755d3ee.png" alt="clipboard.png"></p>
 <p>除此之外怕有人绕过verifycode()接口，直接使用其他调用&#x2F;App&#x2F;Core&#x2F;Extend&#x2F;Library&#x2F;OGR&#x2F;Util&#x2F;Image.class.php的buildImageVerify()方法的接口，他又在buildImageVerify()方法里面做了白名单校验</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_128.c0b9d1fea2.png" alt="clipboard.png"></p>
-<h2 id="除了这种方式之外，还可以通过数组直接绕过，当我们传入数组的时候，经过md5-或者sha1-的处理后都会变成NULL，这样就可以变成a不等于b，但是a的md5的值（NULL）-b的md5的值（NULL）"><a href="#除了这种方式之外，还可以通过数组直接绕过，当我们传入数组的时候，经过md5-或者sha1-的处理后都会变成NULL，这样就可以变成a不等于b，但是a的md5的值（NULL）-b的md5的值（NULL）" class="headerlink" title="除了这种方式之外，还可以通过数组直接绕过，当我们传入数组的时候，经过md5()或者sha1()的处理后都会变成NULL，这样就可以变成a不等于b，但是a的md5的值（NULL）&#x3D;b的md5的值（NULL）"></a>除了这种方式之外，还可以通过数组直接绕过，当我们传入数组的时候，经过md5()或者sha1()的处理后都会变成NULL，这样就可以变成a不等于b，但是a的md5的值（NULL）&#x3D;b的md5的值（NULL）</h2><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_129.e60ce455b7.png" alt="clipboard.png"></p>
-<p>（1.2）json的<br>json的原理其实和正常的传输是异曲同工的，只是通过了json_decode()解码一下，php的json_decode()函数会根据json数据中的数据类型来将其转换为php中的相应类型的数据，也就是说，如果我们在json中传一个string类型，那么该变量就是string，如果传入的是number，则该变量为number。</p>
+<p>除了这种方式之外，还可以通过数组直接绕过，当我们传入数组的时候，经过md5()或者sha1()的处理后都会变成NULL，这样就可以变成a不等于b，但是a的md5的值（NULL）&#x3D;b的md5的值（NULL）</p>
+<p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_129.e60ce455b7.png" alt="clipboard.png"></p>
+<h3 id="（1-2）json的"><a href="#（1-2）json的" class="headerlink" title="（1.2）json的"></a>（1.2）json的</h3><p>json的原理其实和正常的传输是异曲同工的，只是通过了json_decode()解码一下，php的json_decode()函数会根据json数据中的数据类型来将其转换为php中的相应类型的数据，也就是说，如果我们在json中传一个string类型，那么该变量就是string，如果传入的是number，则该变量为number。</p>
 <h2 id="“key”-0"><a href="#“key”-0" class="headerlink" title="{“key”:0}"></a>{“key”:0}</h2><p>数字</p>
 <h2 id="“key”-“0”"><a href="#“key”-“0”" class="headerlink" title="{“key”:“0”}"></a>{“key”:“0”}</h2><p>字符串<br>最终还是字符串和数字0的比较….</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_130.c1171fbcb4.png" alt="clipboard.png"></p>
@@ -942,7 +1067,10 @@
 <h2 id="2、由于不能出现php等字符串、所以可以取反"><a href="#2、由于不能出现php等字符串、所以可以取反" class="headerlink" title="2、由于不能出现php等字符串、所以可以取反"></a>2、由于不能出现php等字符串、所以可以取反</h2><p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_143.3ae90d1343.png" alt="clipboard.png"></p>
 <p>但是我这个payload执行的时候报错里面出现了php 所以……就没成功</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_144.349969ab25.png" alt="clipboard.png"></p>
-<h2 id="17-过滤了，可以使用或者"><a href="#17-过滤了，可以使用或者" class="headerlink" title="17.过滤了，可以使用或者"></a>17.过滤了<?php ?>，可以使用<?= ?>或者<? ?></h2><p>在渗透测试中，常见的登陆后台的操作有两个，一个是找上传点，一个是找直接改代码的模板操作页面，很多cMS都在后台提供了修改模板的功能，但是有的还增加了一些安全性，增加了过滤<?php，只要出现就不允许保存，那这种我们可以使用<?= ?>进行绕过。在PHP中，<?php ?>和<?= ?>始终可用。 但是<? ?>可以通过 short_open_tag php.ini 配置文件指令禁用，或者如果 PHP 是使用 –disable-short-tags 配置构建的，则默认禁用。</p>
+<ul>
+<li>17.过滤了<?php ?>，可以使用<?= ?>或者<? ?></li>
+</ul>
+<p>在渗透测试中，常见的登陆后台的操作有两个，一个是找上传点，一个是找直接改代码的模板操作页面，很多cMS都在后台提供了修改模板的功能，但是有的还增加了一些安全性，增加了过滤<?php，只要出现就不允许保存，那这种我们可以使用<?= ?>进行绕过。在PHP中，<?php ?>和<?= ?>始终可用。 但是<? ?>可以通过 short_open_tag php.ini 配置文件指令禁用，或者如果 PHP 是使用 –disable-short-tags 配置构建的，则默认禁用。</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_145.bf4e828961.png" alt="clipboard.png"></p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_146.e05ef2b8ce.png" alt="clipboard.png"></p>
 <p>注：这个和上面的漏洞合在一起就实现了未授权getshell的效果，很经典！</p>
@@ -971,7 +1099,10 @@
 
 <p>?&gt;</p>
 <p>对于过滤..&#x2F; \的问题，像 windows 主机不仅要过滤..&#x2F;还要过滤..,windows 主机对\会解析为&#x2F;</p>
-<h2 id="17-条件竞争"><a href="#17-条件竞争" class="headerlink" title="17.条件竞争"></a>17.条件竞争</h2><p>经典案例：先存储文件，再判断是否合法，然后再删除。</p>
+<ul>
+<li>17.条件竞争</li>
+</ul>
+<p>经典案例：先存储文件，再判断是否合法，然后再删除。</p>
 <p>首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室”。</p>
 <p>攻击：首先上传一个php文件<br>当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的文件，那么它就会向服务器写一个shell。</p>
 <p>在大牛杯web_checkin的题目有一个非预期解法，当我们使用?&gt;&lt;?&#x3D;<code>nl%09*</code>的时候往这个文件里面写内容</p>
@@ -983,7 +1114,10 @@
 <p>然后就可以使用循环去访问这个<a target="_blank" rel="noopener" href="http://9d2e2b91-d618-46c0-b4f1-1e9b14805686.challenge.ctf.show:8080/sandbox/6065386097930ab67bee5cd5bf2ec214/">http://9d2e2b91-d618-46c0-b4f1-1e9b14805686.challenge.ctf.show:8080/sandbox/6065386097930ab67bee5cd5bf2ec214/</a>这个文件，每次访问都会生成b文件，这个文件就是nl%09&#x2F;*执行的命令，但是每次执行这个脚本，不仅生成这个文件，但是后面也判断了一下，当前目录只能有一个index.php文件，其他php的文件都会被unlink掉，所以需要写一个脚本，在没有删除的时候赶快访问一下就拿到了flag</p>
 <p>脚本和执行结果如下：</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_157.478850eabc.png" alt="clipboard.png"></p>
-<h2 id="18-没有用到参数过滤方法的参数接收"><a href="#18-没有用到参数过滤方法的参数接收" class="headerlink" title="18.没有用到参数过滤方法的参数接收"></a>18.没有用到参数过滤方法的参数接收</h2><p>现在越来越多的CMS都会将过滤封装成一个函数，再将接收参数封装成一个参数，在统一接收参数的时候就会进行统一过滤，这样就能减少出现漏洞的概率，比如jizhicms 1.6.7 ，jizhicms接收参数的函数叫frparam()</p>
+<ul>
+<li>18.没有用到参数过滤方法的参数接收</li>
+</ul>
+<p>现在越来越多的CMS都会将过滤封装成一个函数，再将接收参数封装成一个参数，在统一接收参数的时候就会进行统一过滤，这样就能减少出现漏洞的概率，比如jizhicms 1.6.7 ，jizhicms接收参数的函数叫frparam()</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_158.e7ae7bc80b.png" alt="clipboard.png"></p>
 <p>这里面就可以看到，接收的参数最后都会经过format_param（）函数处理</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_159.b7f349258b.png" alt="clipboard.png"></p>
@@ -1080,7 +1214,8 @@
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_192.1f28daee6f.png" alt="截图.png"></p>
 <p>这里面可以清晰看出先验证用户输入的$str参数里面的值是不是在32-125，然后根据反序列化原则，先执行__destruct()，这里面判定了是不是强等于字符“2”，如果不是进入Process()，然后判定若等于字符“2”的时候进入read()方法，最后通过file_get_contents()方法造成任意文件读取漏洞，还要把protected定义的参数改了，才能打通整个反序列化链，所以构造</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_193.1a51429619.png" alt="截图.png"></p>
-<h2 id="23-数字的运算（intval-num-2020-intval-num-1-2021）"><a href="#23-数字的运算（intval-num-2020-intval-num-1-2021）" class="headerlink" title="[23]数字的运算（intval($num) &lt; 2020 &amp;&amp; intval($num + 1) &gt; 2021）"></a>[23]数字的运算（<strong>intval($num) &lt; 2020 &amp;&amp; intval($num + 1) &gt; 2021</strong>）</h2><p>比如：[WUSTCTF2020]朴实无华 1</p>
+<p>[23]数字的运算（<strong>intval($num) &lt; 2020 &amp;&amp; intval($num + 1) &gt; 2021</strong>）</p>
+<p>比如：[WUSTCTF2020]朴实无华 1</p>
 <p><img src="https://github.com/n0tepad-pro/picx-images-hosting/raw/master/PHP-Code_Auditing-PHP_Tips/PHP-Code_Auditing-PHP_Tips_194.f04e2b1eb8.png" alt="截图.png"></p>
 <p>看起来几乎不可能，这个判定的条件是: 小于2020且+1大于2021<br>但是这个函数是：在输入是字符串的时候，intval会将传入的科学计数法取前面的整数，即2e4取2，即可绕过第一次的比较，在进行第二次的比较时进行了运算，重新转换为了科学计数法<br>但是这个版本比较低，举个例子：</p>
 <p>PHP 4.x、PHP 5.0–5.2<br>intval(“2e4”) 结果 为 2<br>PHP 5.3+、PHP 7.x、PHP 8.x<br>intval(“2e4”) 结果 为 20000<br>因为从 PHP 5.3 起，intval() 会尝试先将字符串转成 float（如果可以），然后再转成 int</p>
