@@ -2,33 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-Xss_Vulnerability/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-Variable_Overwrite_Vulnerability/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-Template_Injection_Vulnerability/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/</loc>
     
     <lastmod>2026-06-16</lastmod>
@@ -102,6 +75,33 @@
   
   <url>
     <loc>http://example.com/wiki/PHP-Code_Auditing-Business_Logic_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Xss_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Variable_Overwrite_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Template_Injection_Vulnerability/</loc>
     
     <lastmod>2026-06-16</lastmod>
     
