@@ -11,24 +11,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-XXE_Vulnerability/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-Variable_Overwrite_Vulnerability/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/wiki/PHP-Code_Auditing-Template_Injection_Vulnerability/</loc>
     
     <lastmod>2026-06-16</lastmod>
@@ -38,43 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-PHP_Tips/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-PHP_Core_Configuration/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/wiki/PHP-Code_Auditing-File_Operation_Vulnerability/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-Deserialization_Vulnerability/</loc>
     
     <lastmod>2026-06-16</lastmod>
     
@@ -111,6 +57,60 @@
   
   <url>
     <loc>http://example.com/wiki/PHP-Code_Auditing-Business_Logic_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-XXE_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Variable_Overwrite_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-PHP_Tips/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-PHP_Core_Configuration/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Deserialization_Vulnerability/</loc>
     
     <lastmod>2026-06-16</lastmod>
     
