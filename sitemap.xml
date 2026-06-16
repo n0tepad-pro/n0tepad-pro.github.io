@@ -2,18 +2,81 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/</loc>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Xss_Vulnerability/</loc>
     
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2026-06-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/wiki/PHP-Code_Auditing-Xss_Vulnerability/</loc>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-XXE_Vulnerability/</loc>
     
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Variable_Overwrite_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Template_Injection_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Sql_injection_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-PHP_Tips/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-PHP_Core_Configuration/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-File_Operation_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Deserialization_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +85,43 @@
   <url>
     <loc>http://example.com/wiki/PHP-Code_Auditing-Command_Execution_Vulnerability/</loc>
     
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Code_Execution_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-CSRF_SSRF_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Business_Logic_Vulnerability/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/wiki/PHP-Code_Auditing-Audit_Bypass_Techniques/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -85,7 +184,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -93,28 +192,28 @@
   
   <url>
     <loc>http://example.com/tags/PHP/</loc>
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Code-auditing/</loc>
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Windows/</loc>
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Virus-analysis/</loc>
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -123,14 +222,14 @@
   
   <url>
     <loc>http://example.com/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%EF%BC%88Code-auditing%EF%BC%89/</loc>
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%EF%BC%88Virus-analysis%EF%BC%89/</loc>
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
